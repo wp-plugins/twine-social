@@ -35,7 +35,7 @@ Your customers see your brand in action, making Twine the perfect social media h
 
 **IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress Site.** 
 
-If you have any questions or feedback, please visit our support forum at http://twinesocial.uservoice.com/, or email us at support{at}twinesocial.com.
+If you have any questions or feedback, please visit our [support forum](http://twinesocial.uservoice.com/), or email us at support{at}twinesocial.com.
 
 == Installation ==
 
