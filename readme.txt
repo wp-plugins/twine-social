@@ -81,7 +81,7 @@ Many column layouts are supported:
 
 Connect any combination of social media feeds, including hashtags, from any social media network and Twine Social will aggregate your content onto one stunning destination on your website, TV, video wall, or display.
 
-[Twine Social] is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.
+[Twine Social](http://www.twinesocial.com) is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.
 
 
 = How do I start using Twine Social? =
@@ -90,7 +90,7 @@ First sign up for a free account at [Twine Social](http://www.twinesocial.com). 
 
 = Help, I'm having a problem! =
 
-We apologize for any problems you may have. Feel free to email us at support{at}twinesocial.com
+We apologize for any problems you may have. Feel free to visit our [support forums](http://twinesocial.uservoice.com), send us a tweet at @twinesocial, or email us at support{at}twinesocial.com
 
 == Screenshots ==
 
