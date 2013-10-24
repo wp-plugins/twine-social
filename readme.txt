@@ -6,7 +6,7 @@ Tested up to: 3.4.1
 Stable tag: 1.0
 License: GPLv2
 
-Display your social media content on your digital properties, and drive massive social engagement. Grow and engage your social audience. 
+Display your Facebook, Twitter, Instagram, YouTube, Vine, Pinterest and RSS social media content on your Wordpress blog in one beautiful interface. Grow and engage your social audience like never before. 
 
 == Description ==
 
@@ -79,7 +79,7 @@ Many column layouts are supported:
 
 = What can I use Twine Social for? =
 
-Connect any combination of social media feeds, including hashtags, from any social media network and Twine Social will aggregate your content onto one stunning destination on your website, TV, video wall, or display.
+Connect any combination of social media feeds, including hashtags, from any social media network and [Twine Social](http://www.twinesocial.com) will aggregate your content onto one stunning destination on your website, TV, video wall, or display.
 
 [Twine Social](http://www.twinesocial.com) is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.
 
@@ -94,7 +94,7 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 == Screenshots ==
 
-1. Embed a feed wall of your social media content on your Wordpress page. Twine Social supports responsive layouts, and infinite scroll.
+1. Embed a social media feed wall of your social media content on your Wordpress page. Twine Social supports responsive layouts, and infinite scroll.
 2. An intuitive settings panel helps you configure your Plugin.
 3. Embed your Twine Social feed in a widget/sidebar
 4. Configure your Twine Social widget.
