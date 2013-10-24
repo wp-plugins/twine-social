@@ -2,7 +2,7 @@
 Contributors: Nathan Elliott, Aaron Fessler
 Tags: Twine Social, facebook widget, twitter widget, instagram widget, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, youtube widget
 Requires at least: 3.0
-Tested up to: 3.4.1
+Tested up to: 3.6.1
 Stable tag: 1.0
 License: GPLv2
 
