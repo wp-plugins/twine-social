@@ -108,10 +108,11 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 == Screenshots ==
 
-1. Embed a social media feed wall of your social media content on your Wordpress page. Twine Social supports responsive layouts, and infinite scroll.
-2. An intuitive settings panel helps you configure your Plugin.
-3. Embed your Twine Social feed in a widget/sidebar
-4. Configure your Twine Social widget.
+1. Embed a social media feed wall of your social media content on your Wordpress page. Twine Social supports responsive layouts, integrated video player, and infinite scroll.
+2. Responsive layout and infinite scroll. Choose your layout and theme.
+3. An intuitive settings panel helps you configure your Plugin.
+4. Embed your Twine Social feed in a widget/sidebar
+5. Configure your Twine Social widget.
 
 
 == Changelog ==
