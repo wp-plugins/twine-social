@@ -22,17 +22,15 @@ Your customers see your brand in action, making Twine the perfect social media h
 * Support for gathering your content by @username, #hashtag, location, and more.
 * Support for complex filters. Automatically eliminate unwanted content and retweets.
 * Unified video player for content with cross-browser support.
-* URL expander takes embedded and shortened URLs, automatically extracting titles, headlines, and key photos
-* Moderate your social media content right from your Wordpress blog with one click.
+* URL expander takes embedded and shortened URLs that appear in your social media stream, automatically extracting titles, headlines, and key photos
+* Moderate your social media content right from your Wordpress blog with one click. Add missing hashtags.
+* Group your content by category (Press Reviews, Blog, News, Products, Events), and embed slices of your social media stream on individual Wordpress pages.
 * Permalinks to each of your social media tiles, optimized for SEO.
 * Responsive grid for dynamic layouts.
 * Infinite scroll: load more content simply by scrolling to the bottom of the page.
 * Custom CSS: Style it to fit your brand.
 
-
-Twine Social is fully responsive, and supports infinite scroll. Support for all major social networks: Facebook, Twitter, Linkedin, Pinterest, Tumblr, YouTube, Vimeo, Vine, Flick, and even RSS feeds.
-
-**IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress site.** 
+**IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress Site.** 
 
 If you have any questions or feedback, please visit our support forum at http://twinesocial.uservoice.com/, or email us at support{at}twinesocial.com.
 
