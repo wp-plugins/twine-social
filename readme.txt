@@ -1,6 +1,6 @@
 === Twine Social: Beautiful social media feeds for your wordpress site ===
 Contributors: Nathan Elliott, Aaron Fessler
-Tags: Twine Social, Facebook Widget, Twitter Widget, Instagram Widget, Linkedin Widget, Social Media Feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins,
+Tags: Twine Social, facebook widget, twitter widget, instagram widget, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, youtube widget
 Requires at least: 3.0
 Tested up to: 3.4.1
 Stable tag: 1.0
@@ -16,14 +16,18 @@ This plugin makes it super easy to add your social media content (including #has
 
 Your customers see your brand in action, making Twine the perfect social media hub.
 
-== Features ==
+= Features =
 
-* A unified view of your social media content from all major networks. Current support for Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
+* A beautiful view of your social media content from all major networks. Current support for Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
 * Support for gathering your content by @username, #hashtag, location, and more.
 * Support for complex filters. Automatically eliminate unwanted content and retweets.
 * Unified video player for content.
 * URL expander takes embedded and shortened URLs, automatically extracting titles, headlines, and key photos
 * Moderate your social media content right from your Wordpress blog with one click.
+* Permalinks to each of your social media tiles, optimized for SEO.
+* Responsive grid for dynamic layouts.
+* Infinite scroll: load more content simply by scrolling to the bottom of the page.
+* Custom CSS: Style it to fit your brand.
 
 
 Twine Social is fully responsive, and supports infinite scroll. Support for all major social networks: Facebook, Twitter, Linkedin, Pinterest, Tumblr, YouTube, Vimeo, Vine, Flick, and even RSS feeds.
