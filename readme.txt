@@ -1,22 +1,22 @@
 === Twine Social: Beautiful social media feeds for your wordpress site ===
 Contributors: Nathan Elliott, Aaron Fessler
-Tags: Twine Social, Facebook Widget, Twitter Widget, Instagram Widget, Social Media, Pinterest Widget
+Tags: Twine Social, Facebook Widget, Twitter Widget, Instagram Widget, Linkedin Widget, Social Media Feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget
 Requires at least: 3.0
 Tested up to: 3.4.1
 Stable tag: 1.0
 License: GPLv2
 
-Display any social media content on your digital properties, and drive massive social engagement. Grow and engage your social audience. 
+Display your social media content on your digital properties, and drive massive social engagement. Grow and engage your social audience. 
 
 == Description ==
 
-[Twine Social](http://www.twinesocial.com) Twine Social provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.
+[Twine Social](http://www.twinesocial.com) provides the tools you need to grow and engage your social audience. Display any social media content on your Wordpress site, and drive massive social engagement.
 
-This plugin makes it super easy to add your social media content (including #hashtags, @accounts and locations) from any social media network to your Wordpress Blog. [Twine Social] is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.
+This plugin makes it super easy to add your social media content (including #hashtags, @accounts, videos, photos, and tweets) from any social media network to your Wordpress Blog. [Twine Social](http://www.twinesocial.com) is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your Wordpress site.
 
 Your customers see your brand in action, making Twine the perfect social media hub.
 
-Twine Social is fully responsive, and supports infinite scroll.
+Twine Social is fully responsive, and supports infinite scroll. Support for all major social networks: Facebook, Twitter, Linkedin, Pinterest, Tumblr, YouTube, Vimeo, Vine, Flick, and even RSS feeds.
 
 **IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress site.** 
 
@@ -26,15 +26,15 @@ If you have any questions or feedback, please visit our support forum at http://
 
 First, go to [Twine Social](http://www.twinesocial.com) and sign up for a FREE account. Installing the plugin without a [Twine Social](http://www.twinesocial.com) account will not work properly.
 
-Twine can be displayed on the Wordpress sidebar or embedded in your page as a shortcode.
+Twine Social can be displayed on the Wordpress sidebar or embedded in your page as a shortcode. It works best when featured on a full page.
 
 
-= Instructions for placing your Twine feed on the Sidebar of your Wordpress site =
+= Instructions for placing your Twine Social feed on the Sidebar of your Wordpress site =
 
 1. Download the plugin and upload it into your Wordpress Plugins folder OR search "Twine Social" in the plugin store and install it.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Click on Settings -> Twine Social Settings.
-4. You'll need to add your Twine Social Account #. You can find it by logging in to http://customer.twinesocial.com, using the account you previously created. Click on settings in the top right hand corner and the Account ID will be displayed. It's a short code, like 13-ICZ5I4.
+4. You'll need to add your Twine Social Account ID. You can find it by logging in to [Twine Social Admin](http://customer.twinesocial.com), using the account you previously created. Click on settings in the top right hand corner and your Account ID will be displayed. It's a short code, like 13-ICZ5I4.
 5. You may have more than one Twine Social application - one for each brand you manage. Choose one.
 6. You can publish your Twine Social application to your Wordpress Home Page, or to create a new Wordpress Page.
 
@@ -75,7 +75,7 @@ Many column layouts are supported:
  
 = What is Twine? =
 
-[Twine Social](http://www.twinesocial.com) Twine Social provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.
+[Twine Social](http://www.twinesocial.com) provides the tools you need to grow and engage your social audience. Display all of your brand’s social media content on your digital properties, and drive massive social engagement.
 
 = What can I use Twine Social for? =
 
