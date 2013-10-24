@@ -1,4 +1,4 @@
-=== Beautifully showcase your social media on your Wordpress Site ===
+=== Twine Social: Showcase all your social media content on your Wordpress blog in one easy and beautiful interface ===
 Contributors: Nathan Elliott, Aaron Fessler
 Tags: Twine Social, facebook widget, twitter widget, instagram widget, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, youtube widget
 Requires at least: 3.0
@@ -29,6 +29,8 @@ Your customers see your brand in action, making Twine the perfect social media h
 * Responsive grid for dynamic layouts.
 * Infinite scroll: load more content simply by scrolling to the bottom of the page.
 * Custom CSS: Style it to fit your brand.
+* Klout: Get an automatic weekly email each time an influential follower follows your Twitter account.
+* Insights: Get an automatic weekly email showing your likes and follower performance over time.
 
 **IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress Site.** 
 
