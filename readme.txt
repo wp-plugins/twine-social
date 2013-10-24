@@ -18,33 +18,24 @@ Your customers see your brand in action, making Twine the perfect social media h
 
 = Features =
 
-	★ A beautiful view of your social media content from all major networks: 
-Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, 
-Linkedin, and RSS.
-	★ Gather your content by @username, #hashtag, location, and more.
-	★ Setup filters to automatically eliminate unwanted content and retweets.
-	★ Video player for content with cross-browser and full-screen playback 
-support.
-	★ URL expander takes embedded and shortened URLs that appear in your social 
-media stream, automatically extracting titles, headlines, and key photos
-	★ Moderate your social media content right from your Wordpress blog with one 
-click.
-	★ Group your content by category (Press Reviews, Blog, News, Products, 
-Events), and embed slices of your social media stream on individual Wordpress pages.
-	★ Permalinks to each of your social media tiles, optimized for SEO.
-	★ Responsive grid for dynamic layouts.
-	★ Infinite scroll: load more content simply by scrolling to the bottom of 
-the page.
-	★ Auto-approve all your user generated content, or set it up for prior moderation.
-	★ Custom CSS: Style it to fit your brand.
-	★ Klout: Get an automatic weekly email each time an influential follower 
-follows your Twitter account.
-	★ Insights: Get an automatic weekly email showing your likes and follower 
-performance over time.
+* A beautiful view of your social media content from all major networks: Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
+* Gather your content by @username, #hashtag, location, and more.
+* Setup filters to automatically eliminate unwanted content and retweets.
+* Video player for content with cross-browser and full-screen playback support.
+* URL expander takes embedded and shortened URLs that appear in your social media stream, automatically extracting titles, headlines, and key photos
+* Moderate your social media content right from your Wordpress blog with one click.
+* Group your content by category (Press Reviews, Blog, News, Products, Events), and embed slices of your social media stream on individual Wordpress pages.
+* Permalinks to each of your social media tiles, optimized for SEO.
+* Responsive grid for dynamic layouts.
+* Infinite scroll: load more content simply by scrolling to the bottom of the page.
+* Auto-approve all your user generated content, or set it up for prior moderation.
+* Custom CSS: Style it to fit your brand.
+* Klout: Get an automatic weekly email each time an influential follower follows your Twitter account.
+* Insights: Get an automatic weekly email showing your likes and follower performance over time.
 
 **IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress Site.** 
 
-**If you have any questions or feedback, please visit our support forum at http://twinesocial.uservoice.com/, or email us at support{at}twinesocial.com.**
+If you have any questions or feedback, please visit our support forum at http://twinesocial.uservoice.com/, or email us at support{at}twinesocial.com.
 
 == Installation ==
 
