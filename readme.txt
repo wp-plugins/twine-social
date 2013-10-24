@@ -6,7 +6,7 @@ Tested up to: 3.4.1
 Stable tag: 1.0
 License: GPLv2
 
-Display your social media content (Facebook, Twitter, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface. Grow your social audience like never before.
+Display your social media content (Facebook, Twitter, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface.
 
 == Description ==
 
