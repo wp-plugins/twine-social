@@ -301,7 +301,7 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 <LI><B>width</b>: width of the iframe</LI>
 <LI><B>height</b>: height of the iframe</LI>
 <LI><B>cols</b>: number of columns to show in the view (default: 4)</LI>
-<LI><B>tab</b>: the specific tab/topic to filter</LI>
+<LI><B>topic</b>: the specific topic to filter, like "Videos" or "Reviews." Setup your topics <a href="http://customer.twinesocial.com/appTopic/edit">here</a>.</LI>
 <LI><B>scroll=auto</b>: for infinite scrolling</LI>
 </UL>
 </BLOCKQUOTE>

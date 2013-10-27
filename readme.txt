@@ -3,8 +3,8 @@ Contributors: Nathan Elliott, Aaron Fessler
 Tags: Twine Social, facebook widget, twitter widget, instagram widget, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, youtube widget, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, plus one, google widget, share this, sharethis, socialize, addthis, autoblogger, autoblog, feed aggregator
 
 Requires at least: 3.0
-Tested up to: 3.6.1
-Stable tag: 1.0
+Tested up to: 3.7
+Stable tag: 1.2
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface.
@@ -74,7 +74,7 @@ Arguments supported by the shortcode:
 * 'width' width of the iframe
 * 'height' height of the iframe
 * 'cols' number of columns to show in the view (default: 4)
-* 'tab' the specific tab/topic to filter
+* ‘topic’ the specific topic to filter, like “Videos” or “Press Releases”
 * 'scroll=auto' for infinite scrolling
 
 Shortcode example:
@@ -118,6 +118,9 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 1.2 =
+* Improved support for topics
 
 = 1.1.0 =
 * Initial Version
