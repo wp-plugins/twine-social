@@ -120,7 +120,7 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 == Changelog ==
 
 = 1.3 =
-* Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics at http://customer.twinesocial.com/appTopic/edit
+* Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics in your [Twine Social Admin Console](http://customer.twinesocial.com/appTopic/edit).
 
 = 1.2 =
 * Improved support for transparent IFRAMES
