@@ -78,7 +78,7 @@ Arguments supported by the shortcode:
 * 'scroll=auto' for infinite scrolling
 
 Shortcode example:
-tab example: [twinesocial site_name='WCD' cols=4 tab='Press']
+[twinesocial site_name=“WCD” cols=4 topic=“Videos”]
 
 Many column layouts are supported:
 1 = 1 column wide

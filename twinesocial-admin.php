@@ -308,7 +308,7 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
 <P>Shortcode example:</P>
 <BLOCKQUOTE>
-<P>[twinesocial site_name='WCD' cols=4 tab='Reviews']
+<P>[twinesocial site_name='WCD' cols=4 topic='Reviews']
 </BLOCKQUOTE>
 
 <P>Many column layouts are supported:
