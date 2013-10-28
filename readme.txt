@@ -120,9 +120,15 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 == Changelog ==
 
 = 1.3 =
-* Added support for Topics. Now, group and display social content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Setup your Topics at http://customer.twinesocial.com/appTopic/edit
+* Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics at http://customer.twinesocial.com/appTopic/edit
 
-= 1.1.0 =
+= 1.2 =
+* Improved support for transparent IFRAMES
+
+= 1.1 =
+* Upgraded support libraries to Bootstrap 3.
+
+= 1.0 =
 * Initial Version
 
 == Upgrade Notice ==
