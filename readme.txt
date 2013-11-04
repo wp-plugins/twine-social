@@ -4,7 +4,7 @@ Tags: Twine Social, facebook widget, twitter widget, instagram widget, linkedin 
 
 Requires at least: 3.0
 Tested up to: 3.7
-Stable tag: 1.2
+Stable tag: 1.3.1
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface.
@@ -118,6 +118,9 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Added new support multiple Twine Social applications. Choose your specific application when setting up the Wordpress Widget.
 
 = 1.3 =
 * Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics in your [Twine Social Admin Console](http://customer.twinesocial.com/appTopic/edit).
