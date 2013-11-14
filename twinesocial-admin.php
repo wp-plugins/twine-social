@@ -342,16 +342,29 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
 <H3>Help, I'm having a problem!</H3>
 
-<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://twinesocial.uservoice.com">support forum</a>, or <a href="mailto:support@twinesocial.com">email us</a>.</p>
+<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>, or <a href="mailto:support@twinesocial.com">email us</a>.</p>
 
 <HR>
 
 
 <Code>
-== Changelog ==<BR>
+= 1.4 =<BR>
+* Now with even more beautiful layouts for responsive, mobile, and table displays.<BR>
+<BR>
+= 1.3.1 =<BR>
+* Added new support multiple Twine Social applications. Choose your specific application when setting up the Wordpress Widget.<BR>
+<BR>
+= 1.3 =<BR>
+* Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics in your [Twine Social Admin Console](http://customer.twinesocial.com/appTopic/edit).<BR>
+<BR>
+= 1.2 =<BR>
+* Improved support for transparent IFRAMES<BR>
+<BR>
+= 1.1 =<BR>
+* Upgraded support libraries to Bootstrap 3.<BR>
+<BR>
 = 1.0 =<BR>
 * Initial Version<BR>
-<BR>
 == Upgrade Notice ==<BR>
 No problems should be encountered when upgrading.<BR>
 </code>
