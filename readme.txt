@@ -4,7 +4,7 @@ Tags: Twine Social, facebook widget, twitter widget, instagram widget, linkedin 
 
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface.
@@ -118,6 +118,9 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 1.4.1 = 
+Improved layout of YouTube and Vimeo elements
 
 = 1.4 =
 * Now with even more beautiful layouts for responsive, mobile, and table displays.
