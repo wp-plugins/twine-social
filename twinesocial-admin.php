@@ -102,10 +102,12 @@ function twinesocial_settings_page() {
 
 	$twinesocial_baseUrl        = get_option('twinesocial_baseUrl');
 	$twinesocial_page_title        = get_option('twinesocial_page_title');
-    $twinesocial_page_title    = ( !empty($twinesocial_page_title) )? $twinesocial_page_title: $twinesocial_baseUrl . ' Page Powered By Twine Social';
+    $twinesocial_page_title    = ( !empty($twinesocial_page_title) ) ? $twinesocial_page_title: $twinesocial_baseUrl . ' Page Powered By Twine Social';
 
 	$twinesocial_page_columns    = get_option('twinesocial_page_columns', '4');
 	$twinesocial_page_auto_scroll = get_option('twinesocial_page_auto_scroll',1);
+	$twinesocial_page_carousel = get_option('twinesocial_page_carousel',1);
+	$twinesocial_page_nav = get_option('twinesocial_page_nav',0);
 
 	$twinesocial_accountid = get_option('twinesocial_accountid');
 	$twinesocial_appdata = get_option('twinesocial_appdata');
@@ -185,7 +187,7 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 							if ($twinesocial_appdata) {
 								$js = json_decode($twinesocial_appdata);
 								if ($js->success) {
-									echo '<SELECT class="form-control input-lg" name="twinesocial_baseUrl" id="twinesocial_baseUrl">';
+									echo '<SELECT class="form-control" name="twinesocial_baseUrl" id="twinesocial_baseUrl">';
 									foreach ($js->apps as $app) {
 										echo '<OPTION value="' . $app->baseUrl . '">' . $app->name . '</option>';
 									}
@@ -199,18 +201,45 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
 						<div class="form-group">
 							<label>What would you like the Wordpress Page Title to be?</label>
-	                        <input type="text" class="form-control input-lg" name="twinesocial_page_title" value="<?php echo $twinesocial_page_title; ?>"><br/>
+	                        <input type="text" class="form-control" name="twinesocial_page_title" value="<?php echo $twinesocial_page_title; ?>"><br/>
 	                    </div>
 
 						<div class="form-group">
 							<label>How many columns would you like to display?</label>
-	                        <input type="text" class="form-control input-lg" name="twinesocial_page_columns" value="<?php echo $twinesocial_page_columns; ?>"><br/>
+	                        <SELECT class="form-control" name="twinesocial_page_columns">
+
+								<OPTION value="1" <?php echo $twinesocial_page_columns=="1" ? "selected" : ""?>>1 column wide</OPTION>
+								<OPTION value="2" <?php echo $twinesocial_page_columns=="2" ? "selected" : ""?>>2 columns, each 50% wide</OPTION>
+								<OPTION value="3" <?php echo $twinesocial_page_columns=="3" ? "selected" : ""?>>3 columns wide, each 33% wide</OPTION>
+
+								<OPTION value="363" <?php echo $twinesocial_page_columns=="363" ? "selected" : ""?>>3 columns, 25%, 50%, and 25% wide</OPTION>
+								<OPTION value="4" <?php echo $twinesocial_page_columns=="4" ? "selected" : ""?>>4 columns wide, each 25% wide</OPTION>
+								<OPTION value="336" <?php echo $twinesocial_page_columns=="336" ? "selected" : ""?>>3 columns, 25%, 25%, and 50% wide</OPTION>
+
+							</SELECT>
+
 	                    </div>
 
 						<div class="checkbox">
 							<label>
-			                <input type="checkbox" value="1" name="twinesocial_page_auto_scroll" <?php echo $twinesocial_page_auto_scroll ? "checked='checked'" : "" ?> />
-							Use "Infinite Scrolling"</label>
+			                <input type="checkbox" value="yes" name="twinesocial_page_auto_scroll" <?php echo $twinesocial_page_auto_scroll ? "checked='checked'" : "" ?> />
+							<B>Infinite Scroll</b></label>
+							<BR>Auto-load additional tiles when your users navigate to the bottom of your social hub
+	                    </div>
+
+						<div class="checkbox">
+							<label>
+			                <input type="checkbox" value="1" name="twinesocial_page_nav" <?php echo $twinesocial_page_nav ? "checked='checked'" : "" ?> />
+							<B>Show Site Navigation</b></label>
+							<BR>Enable navigation tabs.
+	                    </div>
+
+
+						<div class="checkbox">
+							<label>
+			                <input type="checkbox" value="1" name="twinesocial_page_carousel" <?php echo $twinesocial_page_carousel ? "checked='checked'" : "" ?> />
+							<B>Show Featured Video Carousel</b></label>
+							<BR>Display a carousel of your most popular videos at the top of your social hub. Increases engagement.
 	                    </div>
 
 
@@ -237,10 +266,10 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 					<div class="col-md-12">
 
 <P>&nbsp;</p>
-<H3>About Twine Social Wordpress Plugin</H3>
+<H3>About the Twine Social Wordpress Plugin</H3>
 <p class="lead">Showcase your brand's social media, beautifully presented on your Wordpress Blog.</p>
 <P ><a href="http://www.twinesocial.com">Twine Social</a> provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.</p>
-<P>This plugin makes it <b>super easy</b> to add your social media content (including #hashtags, @accounts and locations) from any social media network to your Wordpress Blog. [Twine Social] is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties. Your customers see your brand in action, making Twine the perfect social media hub.</p>
+<P>This plugin makes it <b>super easy</b> to add your social media content (including #hashtags, @accounts and locations) from any social media network to your Wordpress Blog. Twine Social is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties. Your customers see your brand in action, making Twine the perfect social media hub.</p>
 <P>Twine Social is fully responsive, and supports infinite scroll.</p>
 
 <img class="img-responsive img-thumbnail" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/twine-wall.jpg'?>">
@@ -251,11 +280,11 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 <P>IMPORTANT: You will FIRST need to go to <a href="http://www.twinesocial.com">Twine Social</a>, sign up for a FREE account before you can embed it into your Wordpress site.
 </div>
 
-<P>If you have any questions or feedback, please visit our <a href="http://twinesocial.uservoice.com/">support forum</a>, or email us at support{at}twinesocial.com.</p>
+<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum</a>, or email us at support{at}twinesocial.com.</p>
 
 
 <H3>Installation</H3>
-<P>First, go to <a href="http://www.twinesocial.com">Twine Social</a> and sign up for a FREE account. Installing the plugin without a [Twine Social](http://www.twinesocial.com) account will not work properly.</p>
+<P>First, go to <a href="http://www.twinesocial.com">Twine Social</a> and sign up for a FREE account. Installing the plugin without a <a href="http://www.twinesocial.com">Twine Social</a> account will not work properly.</p>
 
 <P>Twine can be displayed on the Wordpress sidebar or embedded in your page as a shortcode.</p>
 
@@ -289,29 +318,32 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
 <H4>Using Twine Social shortcodes</H4>
 
-<OL>
-<LI>Create a new Post and click on the HTML or Text option on the top-right hand side of the post.</LI>
-<LI>Use the shortcode twine: Example [twinesocial app='SITE' cols=2] (Note: Replace SITE with your application name.)</LI>
+<P>Shortcodes are the quickest way to embed TwineSocial on your WordPress site. Create a new Post and click on the HTML or Text option on the top-right hand side of the post. Paste in the following shortcode, replacing MYSITE with yours:
 
-<P>Arguments supported by the shortcode:</p>
+<div class="alert alert-info">[twinesocial app='MYSITE'] </div>
 
-<BLOCKQUOTE>
-<UL>
-<LI><B>app</b>: Your Twine Social application id</LI>
-<LI><B>width</b>: width of the iframe</LI>
-<LI><B>height</b>: height of the iframe</LI>
-<LI><B>cols</b>: number of columns to show in the view (default: 4)</LI>
-<LI><B>topic</b>: the specific topic to filter, like "Videos" or "Reviews." Setup your topics <a href="http://customer.twinesocial.com/appTopic/edit">here</a>.</LI>
-<LI><B>scroll=auto</b>: for infinite scrolling</LI>
-</UL>
-</BLOCKQUOTE>
+<P>Many additional arguments are supported by the shortcode:</p>
 
-<P>Shortcode example:</P>
-<BLOCKQUOTE>
-<P>[twinesocial site_name='WCD' cols=4 topic='Reviews']
-</BLOCKQUOTE>
 
-<P>Many column layouts are supported:
+<DL>
+<DT>app="MYSITE"</DT><DD>Your Twine Social application name</DD>
+<DT>width="250px"</DT><DD>Width of your TwineSocial embedded widget</DD>
+<DT>height="500px"</DT><DD>initial height of the iframe. (If you choose Infinite Scroll below, then your widget will automatically grow when the bottom of the widget is scrolled into view.)</DD>
+<DT>cols="4"</DT><DD>Number of columns to use: 2, 3, or 4. Advanced Tip: Advanced layouts are described below.</DD>
+<DT>nav="1"</DT><DD>Enable/Disable site navigation.</DD>
+<DT>carousel="1"</DT><DD>Display a video carousel, featuring your most popular videos.</DD>
+<DT>topic="Videos"</DT><DD>the specific topic to filter, like "Videos" or "Reviews." Setup your topics <a href="http://customer.twinesocial.com/appTopic/edit">here</a>.</DD>
+<DT>scroll="yes"</DT><DD> Your TwineSocial widget will support infinite scrolling, growing larger when the bottom of the widget is scrolled into view.</DD>
+</DL>
+
+
+<P>Shortcode examples:</P>
+
+<div class="alert alert-info">[twinesocial app='WCD' cols="363" carousel="1"] </div>
+
+<div class="alert alert-info">[twinesocial app='WCD' cols="4" scroll="yes"] </div>
+
+<P>Many advanced column layouts are supported:
 
 <BLOCKQUOTE>
 <UL>
@@ -348,6 +380,13 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
 
 <Code>
+= 2.0 =<BR>
+* A snazzy new Featured Video carousel showcases the most popular videos in your social hub.<BR>
+* Now featuring Topic Navigation.<BR>
+* Support for infinite scroll in the sidebar Widget<BR>
+* Improved documentation.<BR>
+* Tested with Wordpress 3.8.1.
+<BR>
 = 1.4 =<BR>
 * Now with even more beautiful layouts for responsive, mobile, and table displays.<BR>
 <BR>
@@ -355,7 +394,7 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 * Added new support multiple Twine Social applications. Choose your specific application when setting up the Wordpress Widget.<BR>
 <BR>
 = 1.3 =<BR>
-* Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics in your [Twine Social Admin Console](http://customer.twinesocial.com/appTopic/edit).<BR>
+* Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics in your <a href="http://customer.twinesocial.com/appTopic/edit">Twine Social Admin Console</a>.<BR>
 <BR>
 = 1.2 =<BR>
 * Improved support for transparent IFRAMES<BR>
@@ -405,12 +444,14 @@ No problems should be encountered when upgrading.<BR>
  * @param string $autoscroll
  * @return int|boolean new page post_id, or false.
  */
-function twinesocial_add_page( $app, $page_title, $columns, $autoscroll) {
+function twinesocial_add_page( $app, $page_title, $columns, $autoscroll, $carousel, $nav) {
 
     $c = (!empty( $columns ) ) ? ' cols="' . $columns . '"': '';
-    $s = (!empty( $autoscroll ) ) ? ' scroll="auto"': '';
+    $s = (!empty( $autoscroll ) ) ? ' scroll="yes"': '';
+    $carousel = (!empty( $carousel ) ) ? ' carousel="1"': '';
+    $nav = (!empty($nav) ) ? ' nav="1"': '';
     
-    $new_page_content = '[twinesocial app="' . $app . '" ' . $c . $s . ']';
+    $new_page_content = '[twinesocial app="' . $app . '"' . $c . $s . $carousel . $nav . ']';
     $new_page_template = TWINESOCIAL_FULL_WIDTH_TEMPLATE;
     
     $page_check = get_page_by_title($page_title);
@@ -445,6 +486,8 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
 	$twinesocial_page_title    = ( !empty($twinesocial_page_title) )? $twinesocial_page_title: $twinesocial_baseUrl;
 	$twinesocial_page_columns  = intval( esc_html( $_POST['twinesocial_page_columns'] ) );
 	$twinesocial_page_auto_scroll  =  $_POST['twinesocial_page_auto_scroll'];
+	$twinesocial_page_carousel  =  $_POST['twinesocial_page_carousel'];
+	$twinesocial_page_nav  =  $_POST['twinesocial_page_nav'];
 
 
     if ( $_POST['submit_button'] === translate( 'Link My Twine Account' ) ){
@@ -475,9 +518,10 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
     } elseif ( $_POST['submit_button'] === translate( 'Add page' ) ){
 
         update_option('twinesocial_page_auto_scroll', $twinesocial_page_auto_scroll );
+        update_option('twinesocial_page_carousel', $twinesocial_page_carousel );
         update_option('twinesocial_page_title', $twinesocial_page_title );
 
-        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns,$twinesocial_page_auto_scroll);
+        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns,$twinesocial_page_auto_scroll,$twinesocial_page_carousel, $twinesocial_page_nav);
         
         if ( !empty($page_id) ){
             add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We created a new Wordpress Page for you, and installed your Twine Social page on it. <a href="%s">View it Now</a>.', get_bloginfo('url')), 'updated');
@@ -491,8 +535,10 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
         $twinesocial_page_columns = intval( esc_html( $_POST['twinesocial_page_columns'] ) );
         update_option('twinesocial_page_columns', $twinesocial_page_columns );
         update_option('twinesocial_page_auto_scroll', $twinesocial_page_auto_scroll );
+        update_option('twinesocial_page_carousel', $twinesocial_page_carousel );
+        update_option('twinesocial_page_nav', $twinesocial_page_nav );
 
-        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns, $twinesocial_page_auto_scroll);
+        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns, $twinesocial_page_auto_scroll, $twinesocial_page_carousel,$twinesocial_page_nav);
 
         if ( !empty($page_id) ){
 

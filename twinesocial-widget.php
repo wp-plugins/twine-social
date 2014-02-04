@@ -3,7 +3,7 @@
  * Plugin Name: Twine Social Widget
  * Plugin URI: http://www.twinesocial.com
  * Description: Display your social media content with the Twine Social Wordpress plugin - including hashtags and user content - in a beautiful and richly interactive view.
- * Version: 1.4.2
+ * Version: 2.0
  * Author: Nathan Elliott
  * License: GPLv2 or later
  */
@@ -103,8 +103,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	private $app = "";
 	private $height = "";
 	private $width = "";
+	private $scroll = "";
 	private $topic = "";
-	private $cols = "1";
+	private $cols = "363";
+	private $carousel = "1";
+	private $nav = "0";
 
 	/**
 	 * Register widget with WordPress.
@@ -116,7 +119,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 			'Twine Social ',// Name
 			array(
 				'classname'		=>	'twinesocial_Widget',
-				'description'	=>	__('A widget to add your Twine Social stream.', 'framework')
+				'description'	=>	__('A WordPress widget to add your Twine Social Hub.', 'framework')
 			)
 		);
 	} // end constructor
@@ -135,10 +138,17 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 		/* Our variables from the widget settings. */
 		$this->widget_title = apply_filters('widget_title', $instance['title'] );
 
-		$this->height      = $instance['height'];
-		$this->cols      = $instance['cols'];
-		$this->app   = $instance['app'];
-		$this->topic   = $instance['topic'];
+		$this->height   = $instance['height'];
+		$this->cols     = $instance['cols'];
+		$this->app      = $instance['app'];
+		$this->topic    = $instance['topic'];
+		$this->carousel = $instance['carousel'];
+		$this->scroll = $instance['scroll'];
+
+		if (!empty( $r['nav'])) {
+			$this->nav      = $instance['nav'];
+		}
+
 
 		/* Before widget (defined by themes). */
 		echo $before_widget;
@@ -151,6 +161,9 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                             , 'cols' => $this->cols
                             , 'topic' => $this->topic
                             , 'height' => $this->height
+                            , 'carousel' => $this->carousel
+                            , 'scroll' => $this->scroll
+                            , 'nav' => $this->nav
                             ) );
 
 		/* After widget (defined by themes). */
@@ -164,29 +177,39 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
     public function tw_render( $args ) {
         $r = wp_parse_args( $args, array('app' => ''
                                     , 'cols' => '363'
-                                    , 'height' => '1500'
+                                    , 'height' => ''
                                     , 'width' => ''
                                     , 'topic' => ''
                                     , 'scroll' => ''
+                                    , 'carousel' => ''
+                                    , 'nav' => ''
                                     ) );
 
         $r['app'] = $this->clean_appname( $r['app'] );
 
         $url = add_query_arg( array(
             'app'      => rawurlencode( $r['app'] ),
-            'height'   => $r['height'], 
-            'scroll'   => $r['scroll'] 
         ), 'http://apps.twinesocial.com/embed' );
 
 
-//        if ( !empty( $r['height'] ) )
-//            $url = add_query_arg( 'height', $r['height'], $url );
+        if (!empty( $r['height'])) {
+            $url = add_query_arg( 'height', $r['height'], $url );
+        }
+
+        if ( !empty( $r['scroll'] ) )
+            $url = add_query_arg( 'scroll', $r['scroll'], $url );
 
         if ( !empty( $r['cols'] ) )
             $url = add_query_arg( 'cols', $r['cols'], $url );
 
         if ( !empty( $r['topic'] ) )
             $url = add_query_arg( 'topic', $r['topic'], $url );
+
+        if ($r['carousel']=="1")
+            $url = add_query_arg( 'showCarousel', "1", $url );
+
+        if ($r['nav']=="1")
+            $url = add_query_arg( 'showNav', "1", $url );
 
         $output = '<script type="text/javascript" id="twine-script" src="' . esc_url( $url ) . '"></script>';
 
@@ -212,8 +235,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
 		$instance['height'] = strip_tags( $new_instance['height'] );
 		$instance['topic'] = strip_tags( $new_instance['topic'] );
+		$instance['carousel'] = strip_tags( $new_instance['carousel'] );
+		$instance['nav'] = strip_tags( $new_instance['nav'] );
 //		$instance['width'] = strip_tags( $new_instance['width'] );
 		$instance['cols'] = strip_tags( $new_instance['cols'] );
+		$instance['scroll'] = strip_tags( $new_instance['scroll'] );
 
 		return $instance;
 	}
@@ -244,6 +270,9 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                 'cols' => $this->cols,
                 'height' => $this->height,
                 'topic' => $this->topic,
+                'carousel' => $this->carousel,
+                'scroll' => $this->scroll,
+                'nav' => $this->nav,
                 'width' => $this->width,
             );
 
@@ -251,8 +280,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 		<div class="tw-widget-content">
 
             <!-- Page name: Text Input -->
+
+             <H4>Configure your Twine Social Sidebar Widget</H4>
+
             <p>
-                <label for="<?php echo $this->get_field_id( 'app' ); ?>"><?php _e('TwineSocial Site ID', 'framework') ?>: </label>
+                <label for="<?php echo $this->get_field_id( 'app' ); ?>"><?php _e('Choose which TwineSocial application to display in your sidebar', 'framework') ?>: </label>
 
 
 				<?php 
@@ -274,33 +306,32 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
             <!-- Widget Title: Text Input -->
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title', 'framework') ?>: </label>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Widget Title', 'framework') ?>: </label>
                 <input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
             </p>
 
+			<hr>
             <p>
             <strong>Advanced Settings:</strong>
             </p>
 
-            <!-- Height: Text Input -->
             <p>
                 <label for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e('Height', 'framework') ?>: </label>
                 <input type="text" id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" value="<?php echo $instance['height']; ?>" size="5" />px
-                <br><!-- <span class="tw_description">Leave empty if you want twinesocial to take the full height of your sidebar.</span> -->
+                <br> <small>Initial height of the sidebar widget.</small>
             </p>
 
-            <!-- Height: Text Input -->
+            <p>
+                <input type="checkbox" value="yes" id="<?php echo $this->get_field_id( 'scroll' ); ?>" name="<?php echo $this->get_field_name( 'scroll' ); ?>"  <?php echo $instance['scroll'] ? "checked='checked'" : "" ?> />
+                <label for="<?php echo $this->get_field_id( 'scroll' ); ?>">Infinite Scrolling</label>
+
+                <br> <small>Check if you want the widget to automatically grow when the bottom of the page is reached.</small>
+            </p>
+
             <p>
                 <label for="<?php echo $this->get_field_id( 'topic' ); ?>"><?php _e('Topic', 'framework') ?>: </label>
                 <input type="text" id="<?php echo $this->get_field_id( 'topic' ); ?>" name="<?php echo $this->get_field_name( 'topic' ); ?>" value="<?php echo $instance['topic']; ?>" size="10" placeholder="Videos" />
-                <br><span class="tw_topic">Only show items with a certain topic. Setup topics <a href="http://customer.twinesocial.com/appTopic/edit">here</a>.</span>
-            </p>
-
-
-            <!-- Columns: Text Input -->
-            <p>
-                <label for="<?php echo $this->get_field_id( 'cols' ); ?>"><?php _e('Columns', 'framework') ?>: </label>
-                <input type="text" id="<?php echo $this->get_field_id( 'cols' ); ?>" name="<?php echo $this->get_field_name( 'cols' ); ?>" value="<?php echo $instance['cols']; ?>" size="5" />
+                <br><small>Only show items with a certain topic. Setup topics <a href="http://customer.twinesocial.com/appTopic/edit">here</a>.</small>
             </p>
 
         </div>
@@ -340,7 +371,7 @@ function twinesocial_embed( $args ) {
 function twinesocial_shortcode( $atts ) {
     $tw_widget = new twinesocial_Widget();
 
-    $height = '1500';
+    $height = '';
     if ( isset($atts['height']) && !empty( $atts['height'] ) ) {
         $height = $atts['height'];
     }
@@ -370,13 +401,25 @@ function twinesocial_shortcode( $atts ) {
         $scroll = $atts['scroll'];
     }
 
+    $carousel = '0';
+    if (isset($atts['carousel']) && ! empty( $atts['carousel'] ) ) {
+        $carousel = $atts['carousel'];
+    }
+
+    $nav = '0';
+    if (isset($atts['nav']) && !empty( $atts['nav'] ) ) {
+        $nav = $atts['nav'];
+    }
+
     return $tw_widget->tw_render( array(
         'app'     => $app,
         'cols'        => $cols,
         'height'        => $height,
         'scroll'        => $scroll,
         'topic'        => $topic,
-        'width'        => $width
+        'width'        => $width,
+        'nav'        => $nav,
+        'carousel'        => $carousel
     ) );
 }
 add_shortcode( 'twinesocial', 'twinesocial_shortcode' );
