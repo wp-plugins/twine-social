@@ -125,7 +125,7 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 = 2.2 =
 Removed dependency on cURL library.
-Tested with Wordpress 3.9.1
+Tested with WordPress 3.9.1
 
 = 2.0 = 
 A snazzy new Featured Video carousel showcases the most popular videos in your social hub.
