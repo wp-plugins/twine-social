@@ -9,8 +9,6 @@ require_once( ABSPATH .'wp-includes/theme.php' );
 
 add_action('admin_menu', 'twinesocial_create_setting_menu');
 
-twinesocial_warnings();
-
 
 /**
  * show error when:
@@ -22,9 +20,9 @@ twinesocial_warnings();
  */
 function twinesocial_warnings() {
 
-    $rembelmouse_template = get_template_directory() . '/' .  TWINESOCIAL_FULL_WIDTH_TEMPLATE;
+    $twine_template = get_template_directory() . '/' .  TWINESOCIAL_FULL_WIDTH_TEMPLATE;
 
-    if ( ! file_exists( $rembelmouse_template ) ) {
+    if ( ! file_exists( $twine_template ) ) {
 
         if ( ! is_writable( get_template_directory() ) )  {
             function twinesocial_alert() {
@@ -102,11 +100,10 @@ function twinesocial_settings_page() {
 
 	$twinesocial_baseUrl        = get_option('twinesocial_baseUrl');
 	$twinesocial_page_title        = get_option('twinesocial_page_title');
-    $twinesocial_page_title    = ( !empty($twinesocial_page_title) ) ? $twinesocial_page_title: $twinesocial_baseUrl . ' Page Powered By Twine Social';
+    $twinesocial_page_title    = ( !empty($twinesocial_page_title) ) ? $twinesocial_page_title : 'Social Media Hub: Powered By Twine Social';
 
 	$twinesocial_page_columns    = get_option('twinesocial_page_columns', '4');
 	$twinesocial_page_auto_scroll = get_option('twinesocial_page_auto_scroll',1);
-	$twinesocial_page_carousel = get_option('twinesocial_page_carousel',1);
 	$twinesocial_page_nav = get_option('twinesocial_page_nav',0);
 
 	$twinesocial_accountid = get_option('twinesocial_accountid');
@@ -131,11 +128,14 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 ?>
 
 <div class="container">
+
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>Twine Social Plugin Settings</h1>
-				<P>Twine Social makes a great front page for your Wordpress blog, instantly making it dynamic and social. If you haven't already, you'll need to get your free account at <a target="_blank" href="http://www.twinesocial.com/">Twine Social</a> to use this plugin. </P>
+				<h1>TwineSocial</h1>
+				<H3>Beautiful Social Media Hubs for Wordpress</H3>
+				<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social. If you haven't already, you'll need to get your free account at <a target="_blank" href="http://www.twinesocial.com/">Twine Social</a> to use this plugin. </P>
 				<P>Already have an account? Sweet! Simply enter your Twine Social Account ID below. We'll show you a list of your active Twine Social apps. Pick one, and we'll make it your WordPress site home page. Or, embed the Short Code on any page, including a WordPress widget sidebar. </p>
 			</div>
 		</div>
@@ -178,11 +178,11 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 			  	<div class="row">
 					<div class="col-md-12">
                         <h3>Add a Twine Social Page</h3>
-                        <p>Set Twine Social as your homepage. Just follow the steps below.</p>
+                        <p>Set your TwineSocial hub as your homepage. Just follow the steps below.</p>
 
 
 						<div class="form-group">
-							<label>Which Twine Social Application would you like to put on your Wordpress Home Page?</label>
+							<label>Which TwineSocial Hub would you like to put on your Wordpress Home Page?</label>
 							<?php 
 							if ($twinesocial_appdata) {
 								$js = json_decode($twinesocial_appdata);
@@ -235,14 +235,6 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 	                    </div>
 
 
-						<div class="checkbox">
-							<label>
-			                <input type="checkbox" value="1" name="twinesocial_page_carousel" <?php echo $twinesocial_page_carousel ? "checked='checked'" : "" ?> />
-							<B>Show Featured Video Carousel</b></label>
-							<BR>Display a carousel of your most popular videos at the top of your social hub. Increases engagement.
-	                    </div>
-
-
 						<div class="form-group">
 
 						<?php 
@@ -264,6 +256,7 @@ wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 			  <div class="tab-pane fade" id="twine-tab-faq">
 			  	<div class="row">
 					<div class="col-md-12">
+
 
 <P>&nbsp;</p>
 <H3>About the Twine Social Wordpress Plugin</H3>
@@ -444,7 +437,7 @@ No problems should be encountered when upgrading.<BR>
  * @param string $autoscroll
  * @return int|boolean new page post_id, or false.
  */
-function twinesocial_add_page( $app, $page_title, $columns, $autoscroll, $carousel, $nav) {
+function twinesocial_add_page( $app, $page_title, $columns, $autoscroll, $nav) {
 
     $c = (!empty( $columns ) ) ? ' cols="' . $columns . '"': '';
     $s = (!empty( $autoscroll ) ) ? ' scroll="yes"': '';
@@ -486,48 +479,40 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
 	$twinesocial_page_title    = ( !empty($twinesocial_page_title) )? $twinesocial_page_title: $twinesocial_baseUrl;
 	$twinesocial_page_columns  = intval( esc_html( $_POST['twinesocial_page_columns'] ) );
 	$twinesocial_page_auto_scroll  =  $_POST['twinesocial_page_auto_scroll'];
-	$twinesocial_page_carousel  =  $_POST['twinesocial_page_carousel'];
 	$twinesocial_page_nav  =  $_POST['twinesocial_page_nav'];
 
 
-    if ( $_POST['submit_button'] === translate( 'Link My Twine Account' ) ){
+    if ( $_POST['submit_button'] === translate('Link My Twine Account') ){
 
         update_option('twinesocial_accountid', $_POST['accountid'] );
 
-		//open connection
-		$ch = curl_init();
+		$result = wp_remote_get("http://www.twinesocial.com/api?method=accountinfo&accountId=" . $_POST['accountid']);
 
-		//set the url, number of POST vars, POST data
-		curl_setopt($ch,CURLOPT_URL, "http://www.twinesocial.com/api?method=accountinfo&accountId=" . $_POST['accountid']);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-		//execute post
-		$result = curl_exec($ch);
-		$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-		if ($http_status==200) {
-
-			$js = json_decode($result);
+		if (!is_wp_error( $result) ) {
+			$js = json_decode(wp_remote_retrieve_body($result));
 			if ($js->success==true) {
-		        update_option('twinesocial_appdata', $result);
+				update_option('twinesocial_appdata', wp_remote_retrieve_body($result));
 			} else {
-		        delete_option('twinesocial_appdata');
+				delete_option('twinesocial_appdata');
 			}
+//            add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('Settings saved!', get_bloginfo('url')), 'alert alert-danger');
+
+		} else {
+            add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
 		}
 
-    } elseif ( $_POST['submit_button'] === translate( 'Add page' ) ){
+    } elseif ( $_POST['submit_button'] === translate('Add page') ){
 
         update_option('twinesocial_page_auto_scroll', $twinesocial_page_auto_scroll );
-        update_option('twinesocial_page_carousel', $twinesocial_page_carousel );
         update_option('twinesocial_page_title', $twinesocial_page_title );
 
-        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns,$twinesocial_page_auto_scroll,$twinesocial_page_carousel, $twinesocial_page_nav);
+        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns,$twinesocial_page_auto_scroll,$twinesocial_page_nav);
         
         if ( !empty($page_id) ){
-            add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We created a new Wordpress Page for you, and installed your Twine Social page on it. <a href="%s">View it Now</a>.', get_bloginfo('url')), 'updated');
+            add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We created a new Wordpress Page for you, and installed your Twine Social page on it. <a href="' . get_permalink($page_id) . '">View it Now</a>.', get_bloginfo('url')), 'alert alert-success');
         }
 
-    } elseif ( $_POST['submit_button'] === translate( 'Set as Home' ) ){
+    } elseif ( $_POST['submit_button'] === translate('Set as Home') ){
 
         update_option('twinesocial_baseUrl', esc_html( $_POST['twinesocial_baseUrl'] ) );
         update_option('twinesocial_page_title', $twinesocial_page_title );
@@ -535,10 +520,9 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
         $twinesocial_page_columns = intval( esc_html( $_POST['twinesocial_page_columns'] ) );
         update_option('twinesocial_page_columns', $twinesocial_page_columns );
         update_option('twinesocial_page_auto_scroll', $twinesocial_page_auto_scroll );
-        update_option('twinesocial_page_carousel', $twinesocial_page_carousel );
         update_option('twinesocial_page_nav', $twinesocial_page_nav );
 
-        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns, $twinesocial_page_auto_scroll, $twinesocial_page_carousel,$twinesocial_page_nav);
+        $page_id = twinesocial_add_page($twinesocial_baseUrl, $twinesocial_page_title, $twinesocial_page_columns, $twinesocial_page_auto_scroll, $twinesocial_page_nav);
 
         if ( !empty($page_id) ){
 
