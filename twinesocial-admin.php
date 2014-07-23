@@ -166,7 +166,3 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
 }
 
 ?>
-
-
-
-
