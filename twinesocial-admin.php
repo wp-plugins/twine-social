@@ -1,13 +1,6 @@
 <?php
-
-
-// fix PHP Fatal error:  Call to undefined function wp_verify_nonce()
-require_once( ABSPATH .'wp-includes/pluggable.php' );
-// require template.php to use add_settings_error
-require_once( ABSPATH .'wp-admin/includes/template.php' );
-// to use theme functions
-//require_once( ABSPATH .'wp-includes/theme.php' );
-
+require_once(ABSPATH . WPINC .'/pluggable.php' );
+require_once(ABSPATH . WPINC .'/template.php' );
 include_once ("lib/functions.php");
 
 add_action('admin_menu', 'twinesocial_create_setting_menu');
@@ -16,8 +9,9 @@ add_action('admin_menu', 'twinesocial_create_setting_menu');
  * The admin page for twinesocial settings.
  */
 function twinesocial_settings_page() { 
-    global $twinesocial_admin_page;
 
+    global $twinesocial_admin_page;
+    
     if ( get_current_screen()->id != $twinesocial_admin_page)
         return;
 

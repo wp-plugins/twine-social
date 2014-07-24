@@ -123,7 +123,7 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 == Changelog ==
 
-= 2.5 =
+= 2.5.1 =
 BIGGEST UPDATE YET: LOADED WITH NEW FEATURES
 Significant enhancements to widget administration. Now see the status of your social connections.
 Support for embedding layouts and collections
