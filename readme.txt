@@ -59,12 +59,12 @@ That's it!
 
 1. Go to the Appearance -> Widgets, drag the "Twine Social" widget to your "Main Sidebar"
 2. Choose from your list of available Twine Social applications.
-3. Setup Height and number of columns. (Leave height blank for 100%).
+3. Setup height. (Leave height blank for 100%).
 
 = Instructions for placing your Twine feed directly in a post or page using shortcode =
 
 1. Create a new Post and click on the HTML or Text option on the top-right hand side of the post. 
-2. Use the shortcode twine: Example [twinesocial app='SITE' cols=2] (Note: Replace SITE with your application name.)
+2. Use the shortcode twine: Example [twinesocial app='SITE'] (Note: Replace SITE with your application name.)
 3. Before you publish, click Visibility- Public 
 
 Arguments supported by the shortcode:
@@ -72,19 +72,11 @@ Arguments supported by the shortcode:
 * 'app' Your Twine Social application id
 * 'width' width of the iframe
 * 'height' height of the iframe
-* 'cols' number of columns to show in the view (default: 4)
 * ‘topic’ the specific topic to filter, like “Videos” or “Press Releases”
 * 'scroll=auto' for infinite scrolling
 
 Shortcode example:
-[twinesocial site_name=“WCD” cols=4 topic=“Videos”]
-
-Many column layouts are supported:
-1 = 1 column wide
-2 = 2 columns, each 50% wide
-3 = 3 columns, each 33% wide
-363 = 3 columns, 25%, 50%, and 25% wide.
-4 = 4 columns, each 25% wide (default)
+[twinesocial site_name=“WCD” topic=“Videos”]
 
 == Frequently Asked Questions == 
  
