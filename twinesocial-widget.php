@@ -3,87 +3,17 @@
  * Plugin Name: Twine Social Widget
  * Plugin URI: http://www.twinesocial.com
  * Description: Display your social media content with the Twine Social Wordpress plugin - including hashtags and user content - in a beautiful and richly interactive view.
- * Version: 2.2
+ * Version: 2.5.1
  * Author: Nathan Elliott
  * License: GPLv2 or later
  */
 
-define( 'TWINESOCIAL_FULL_WIDTH_TEMPLATE', 'page-twinesocial-4-columns.php' );
-
 require_once dirname( __FILE__ ) . '/twinesocial-admin.php';
 
-/**
- * Template functions
- **/
-
-function twinesocial_template_custom_activation() {
-    twinesocial_add_templates_to_theme();
-}
-register_activation_hook( __FILE__, 'twinesocial_template_custom_activation' );
-
-
-function twinesocial_template_custom_deactivation() {
-    twinesocial_remove_template_from_theme();
-}
-register_deactivation_hook( __FILE__, 'twinesocial_template_custom_deactivation' );
-
-
-/**
- * Create a Twine Social plugin template for page into the current theme.
- */
-function twinesocial_add_templates_to_theme(){
-
-    $src_template = dirname( __FILE__ ).'/templates/' . TWINESOCIAL_FULL_WIDTH_TEMPLATE;
-    $dst_template = get_template_directory().'/' . TWINESOCIAL_FULL_WIDTH_TEMPLATE;
-
-    if( ! file_exists( $dst_template ) ) {
-        $data = file_get_contents($src_template);
-        if ( ! twinesocial_create_page_template( $data, get_template_directory(), TWINESOCIAL_FULL_WIDTH_TEMPLATE) ) {
-            //wp_die('plugin need write permissions on the template');
-        }
-    }
-}
-
-
-function twinesocial_create_page_template($data, $dst_dir,  $dst_file){
-    $result = false;
-    
-    $destination = get_template_directory().'/'.$dst_file;
-    
-    if ( file_exists($destination) ) {
-        //backup home
-        $bkp_file = tempnam($dst_dir, $dst_file);
-        rename($destination, $bkp_file);
-    }
-
-    if ( !file_exists($destination) ){
-        $handle = fopen($destination, "w");
-        $result = fwrite($handle, $data);
-        fclose($handle);
-    } 
-    
-    return $result;
-}
-
-
-function twinesocial_remove_template_from_theme(){
-    
-     twinesocial_remove_templates_files( TWINESOCIAL_FULL_WIDTH_TEMPLATE );
-     
-}
-
-function twinesocial_remove_templates_files( $file ) {
-    
-    //only remove home.php and twinesocial_FULL_WIDTH_TEMPLATE
-    if ( in_array( $file, array(TWINESOCIAL_FULL_WIDTH_TEMPLATE)) ) {
-    
-        $dst_template = get_template_directory().'/'.$file;
-        //$handle = fopen($dst_template);
-        //fclose($handle);
-        return unlink($dst_template);
-    }
-    return false;
-}
+if (!defined("TWINE_PLUGIN_DIRNAME"))   define("TWINE_PLUGIN_DIRNAME",  plugin_basename(dirname(__FILE__)) );
+if (!defined("TWINE_PUBLIC_URL"))   define("TWINE_PUBLIC_URL",  "//www.twinesocial.com");
+if (!defined("TWINE_APPS_URL"))   define("TWINE_APPS_URL",  "//apps.twinesocial.com");
+if (!defined("TWINE_CUSTOMER_URL"))   define("TWINE_CUSTOMER_URL",  "//customer.twinesocial.com");
 
 
 /**
@@ -104,10 +34,10 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	private $height = "";
 	private $width = "";
 	private $scroll = "";
-	private $topic = "";
-	private $cols = "363";
+	private $collection = "";
 	private $carousel = "1";
 	private $nav = "0";
+	private $noAnimate = false;
 
 	/**
 	 * Register widget with WordPress.
@@ -115,11 +45,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	public function __construct() {
 
 		parent::__construct(
-			'twinesocial_Widget',// Base ID
-			'Twine Social ',// Name
+			'twinesocial_Widget', // Base ID
+			'Twine Social ',      // Name
 			array(
 				'classname'		=>	'twinesocial_Widget',
-				'description'	=>	__('A WordPress widget to add your Twine Social Hub.', 'framework')
+				'description'	=>	__('A WordPress widget to add your TwineSocial Hub.', 'framework')
 			)
 		);
 	} // end constructor
@@ -132,23 +62,21 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Saved values from database.
 	 */
+	 
+	 // this only affects the sidebar widget
 	public function widget( $args, $instance ) {
 		extract( $args );
 
 		/* Our variables from the widget settings. */
 		$this->widget_title = apply_filters('widget_title', $instance['title'] );
 
-		$this->height   = $instance['height'];
-		$this->cols     = $instance['cols'];
-		$this->app      = $instance['app'];
-		$this->topic    = $instance['topic'];
-		$this->carousel = $instance['carousel'];
-		$this->scroll = $instance['scroll'];
 
-		if (!empty( $r['nav'])) {
-			$this->nav      = $instance['nav'];
-		}
-
+		$this->height     = $instance['height'];
+		$this->app        = $instance['app'];
+		$this->collection = isset($instance['collection']) ? $instance['collection'] : null;
+		$this->carousel   = isset($instance['carousel']) ? $instance['carousel'] : null;
+		$this->scroll     = $instance['scroll'];
+		$this->noAnimate  = true ;
 
 		/* Before widget (defined by themes). */
 		echo $before_widget;
@@ -158,10 +86,10 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 			echo $before_title . $this->widget_title . $after_title;
 
         $this->render( array('app' => $this->app
-                            , 'cols' => $this->cols
-                            , 'topic' => $this->topic
+                            , 'collection' => $this->collection
                             , 'height' => $this->height
                             , 'carousel' => $this->carousel
+                            , 'noAnimate' => $this->noAnimate
                             , 'scroll' => $this->scroll
                             , 'nav' => $this->nav
                             ) );
@@ -176,12 +104,12 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
     public function tw_render( $args ) {
         $r = wp_parse_args( $args, array('app' => ''
-                                    , 'cols' => '363'
                                     , 'height' => ''
                                     , 'width' => ''
-                                    , 'topic' => ''
+                                    , 'collection' => ''
                                     , 'scroll' => ''
                                     , 'carousel' => ''
+                                    , 'noAnimate'=>false
                                     , 'nav' => ''
                                     ) );
 
@@ -189,21 +117,19 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
         $url = add_query_arg( array(
             'app'      => rawurlencode( $r['app'] ),
-        ), 'http://apps.twinesocial.com/embed' );
+        ), TWINE_APPS_URL . '/embed' );
 
 
         if (!empty( $r['height'])) {
             $url = add_query_arg( 'height', $r['height'], $url );
         }
 
-        if ( !empty( $r['scroll'] ) )
-            $url = add_query_arg( 'scroll', $r['scroll'], $url );
+        if (strlen($r['scroll'])==0) {
+            $url = add_query_arg( 'scroll', "no", $url );
+        }
 
-        if ( !empty( $r['cols'] ) )
-            $url = add_query_arg( 'cols', $r['cols'], $url );
-
-        if ( !empty( $r['topic'] ) )
-            $url = add_query_arg( 'topic', $r['topic'], $url );
+        if ( !empty( $r['collection'] ) )
+            $url = add_query_arg( 'collection', $r['collection'], $url );
 
         if ($r['carousel']=="1")
             $url = add_query_arg( 'showCarousel', "1", $url );
@@ -211,7 +137,13 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
         if ($r['nav']=="1")
             $url = add_query_arg( 'showNav', "1", $url );
 
-        $output = '<script type="text/javascript" id="twine-script" src="' . esc_url( $url ) . '"></script>';
+		if ($r['noAnimate']) {
+	        $url = add_query_arg( 'noAnimate', "1", $url );
+	    }
+
+		$code = substr(md5(uniqid(mt_rand(), true)) , 0, 8);
+
+        $output = '<script type="text/javascript" id="twine-script" data-instance-id="' . $code . '" src="' . esc_url( $url ) . '"></script>';
 
         return $output;
     }
@@ -230,15 +162,12 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 		$instance = $old_instance;
 
 		/* Strip tags for title and name to remove HTML (important for text inputs). */
-		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['app'] = strip_tags( $new_instance['app'] );
 
 		$instance['height'] = strip_tags( $new_instance['height'] );
-		$instance['topic'] = strip_tags( $new_instance['topic'] );
+		$instance['collection'] = strip_tags( $new_instance['collection'] );
 		$instance['carousel'] = strip_tags( $new_instance['carousel'] );
 		$instance['nav'] = strip_tags( $new_instance['nav'] );
-//		$instance['width'] = strip_tags( $new_instance['width'] );
-		$instance['cols'] = strip_tags( $new_instance['cols'] );
 		$instance['scroll'] = strip_tags( $new_instance['scroll'] );
 
 		return $instance;
@@ -263,13 +192,14 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
 		$twinesocial_appdata = get_option('twinesocial_appdata');
 
+	    wp_enqueue_script('twinesocial_widget_js3', plugins_url('/js/twine.js', __file__ ) );
+
 		/* Set up some default widget settings. */
 		$defaults = array(
                 'title' => $this->widget_title,
                 'app' => $this->app,
-                'cols' => $this->cols,
                 'height' => $this->height,
-                'topic' => $this->topic,
+                'collection' => $this->collection,
                 'carousel' => $this->carousel,
                 'scroll' => $this->scroll,
                 'nav' => $this->nav,
@@ -284,21 +214,45 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
              <H4>Configure your Twine Social Sidebar Widget</H4>
 
             <p>
-                <label for="<?php echo $this->get_field_id( 'app' ); ?>"><?php _e('Choose which TwineSocial application to display in your sidebar', 'framework') ?>: </label>
+                <label for="<?php echo $this->get_field_id( 'app' ); ?>"><?php _e('TwineSocial Hub:', 'framework') ?>: </label><BR>
 
 
 				<?php 
 				if ($twinesocial_appdata) {
 					$js = json_decode($twinesocial_appdata);
 					if ($js->success) { ?>
-						<SELECT id="<?php echo $this->get_field_id( 'app' ); ?>" name="<?php echo $this->get_field_name( 'app' ); ?>" >
+						<SELECT id="twinesocial_baseUrl" name="<?php echo $this->get_field_name( 'app' ); ?>" >
 						<?php foreach ($js->apps as $app) {
-							echo '<OPTION value="' . $app->baseUrl . '">' . $app->name . '</option>';
+
+							$sel = $instance['app']==$app->baseUrl ? 'selected' : '';
+							echo '<OPTION ' . $sel . ' value="' . $app->baseUrl . '">' . $app->name . '</option>';
 						}
 						echo '</SELECT>';
 					} else {
 						echo '<div class="alert alert-info">' . $js->message . '</div>';
 					}
+			} ?>
+						
+            </p>
+
+
+            <p>
+                <label for="<?php echo $this->get_field_id( 'collection' ); ?>"><?php _e('Collection', 'framework') ?>: </label><BR>
+
+				<?php 
+				if ($twinesocial_appdata) {
+					$js = json_decode($twinesocial_appdata); ?>
+					<SELECT id="twinesocial_collection" name="<?php echo $this->get_field_name( 'collection' ); ?>">
+						<OPTION value="0">Show All Items</option>
+						<?php foreach ($js->apps as $app) {
+							if ($app->baseUrl == $js->apps[0]->baseUrl) {
+								foreach ($app->collections as $collection) { 
+									$sel = $instance['collection']==$collection->id ? 'selected="selected"' : '';
+									echo '<OPTION ' . $sel . ' value="' . $collection->id . '">' . $collection->name . '</option>';
+								}
+							}
+						}
+					echo '</SELECT>';
 			} ?>
 						
             </p>
@@ -326,12 +280,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                 <label for="<?php echo $this->get_field_id( 'scroll' ); ?>">Infinite Scrolling</label>
 
                 <br> <small>Check if you want the widget to automatically grow when the bottom of the page is reached.</small>
-            </p>
-
-            <p>
-                <label for="<?php echo $this->get_field_id( 'topic' ); ?>"><?php _e('Topic', 'framework') ?>: </label>
-                <input type="text" id="<?php echo $this->get_field_id( 'topic' ); ?>" name="<?php echo $this->get_field_name( 'topic' ); ?>" value="<?php echo $instance['topic']; ?>" size="10" placeholder="Videos" />
-                <br><small>Only show items with a certain topic. Setup topics <a href="http://customer.twinesocial.com/appTopic/edit">here</a>.</small>
             </p>
 
         </div>
@@ -366,7 +314,7 @@ function twinesocial_embed( $args ) {
  * 
  * Usage: 
  * [twinesocial app="twinesocial"]
- * [twinesocial app="twinesocial" height="1500" cols="3"]
+ * [twinesocial app="twinesocial" height="1500"]
  */
 function twinesocial_shortcode( $atts ) {
     $tw_widget = new twinesocial_Widget();
@@ -381,24 +329,19 @@ function twinesocial_shortcode( $atts ) {
         $width = $atts['width'];
     }
 
-    $cols = '1';
-    if ( isset($atts['cols']) && ! empty( $atts['cols'] ) ) {
-        $cols = $atts['cols'];
-    }
-
     $app = '';
     if (isset($atts['app']) && ! empty( $atts['app'] ) ) {
         $app = $atts['app'];
     }
 
-    $topic = '';
-    if (isset($atts['topic']) && ! empty( $atts['topic'] ) ) {
-        $topic = urlencode($atts['topic']);
+    $collection = '';
+    if (isset($atts['collection']) && ! empty( $atts['collection'] ) ) {
+        $collection = urlencode($atts['collection']);
     }
 
     $scroll = '';
-    if (isset($atts['scroll']) && ! empty( $atts['scroll'] ) ) {
-        $scroll = $atts['scroll'];
+    if (empty($atts['scroll'])) {
+        $scroll = "no";
     }
 
     $carousel = '0';
@@ -408,20 +351,53 @@ function twinesocial_shortcode( $atts ) {
 
     $nav = '0';
     if (isset($atts['nav']) && !empty( $atts['nav'] ) ) {
-        $nav = $atts['nav'];
+        $nav = '1';
     }
 
     return $tw_widget->tw_render( array(
         'app'     => $app,
-        'cols'        => $cols,
         'height'        => $height,
         'scroll'        => $scroll,
-        'topic'        => $topic,
+        'collection'        => $collection,
         'width'        => $width,
         'nav'        => $nav,
+        'noAnimate'        => false,
         'carousel'        => $carousel
     ) );
 }
 add_shortcode( 'twinesocial', 'twinesocial_shortcode' );
+
+/**
+* This function is in charge of sending the "get started" email
+*/
+function send_welcome_email() {	
+	$to = get_bloginfo('admin_email');
+	$subject = 'Build Your Social Hub';
+	$message = "
+	<p>Hi there,</p>
+	<p>Thank you for trying TwineSocial for WordPress. I’m Samuel Barnett, here to help you create your perfect social media hub with Twine.</p>
+	<p>To start, please sign up for a <a href='http://www.twinesocial.com/?utm_source=wp-welcome'>TwineSocial account</a>. It’s totally free and <a href='http://www.twinesocial.com/?utm_source=wp-welcome'>only takes a few minutes</a>. Then, connect up your networks and hashtags.</p>
+	<p>Finally, enter your account ID (see the upper righthand corner of your admin) into your WordPress plugin. And boom! You’re done!</p>
+	<p>Questions? Hit “reply” and let me know how I can help. It's what I'm here for.</p>
+	<br />
+	Samuel Weaver<br />
+	Customer Support<br />
+	<a href='mailto:support@twinesocial'>support@twinesocial.com</a><br /><br />
+	<img width='206' height='30' src='http://static.twinesocial.com/images/wp-logo.png' alt='TwineSocial' title='TwineSocial'>
+	";
+	$headers = "From: TwineSocial <support@twinesocial.com>\r\n";
+	$headers.= "Reply-To: Samuel Weaver <support@twinesocial.com>\r\n";
+	$headers.= "X-Mailer: PHP/" . phpversion() . "\r\n";
+	$headers.= "MIME-Version: 1.0\r\n";
+	$headers.= "Content-type: text/html; charset=utf-8\r\n";
+
+	if (function_exists('wp_mail')){
+		wp_mail($to, $subject, $message, $headers);
+	}
+}
+
+// Sets welcome email to send after activation.
+register_activation_hook( __FILE__, 'send_welcome_email' );
+
 
 ?>
