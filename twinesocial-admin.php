@@ -1,7 +1,7 @@
 <?php
 require_once(ABSPATH . WPINC .'/pluggable.php' );
 require_once(ABSPATH . WPINC .'/template.php' );
-include_once ("lib/functions.php");
+require_once("lib/functions.php");
 
 add_action('admin_menu', 'twinesocial_create_setting_menu');
 
@@ -61,6 +61,7 @@ function twinesocial_settings_page() {
 	<?php 
 	settings_fields( 'twinesocial-settings-group' );
 	wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
+
 	?>
 
 
@@ -153,7 +154,9 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
 		}
 
 	} else {
-		add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
+		if (function_exists( 'add_settings_error' )) {
+			add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
+		}
 	}
 
 
