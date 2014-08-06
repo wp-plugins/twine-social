@@ -3,18 +3,29 @@
  * Plugin Name: Twine Social Widget
  * Plugin URI: http://www.twinesocial.com
  * Description: Display your social media content with the Twine Social Wordpress plugin - including hashtags and user content - in a beautiful and richly interactive view.
- * Version: 2.5.2
+ * Version: 2.5.3
  * Author: Nathan Elliott
  * License: GPLv2 or later
  */
 
+if (!defined('TWINE_PLUGIN_DIRNAME')) {
+	define('TWINE_PLUGIN_DIRNAME',  plugin_basename(dirname(__FILE__)) );
+}
+
+if (!defined('TWINE_PUBLIC_URL')) { 
+	define('TWINE_PUBLIC_URL',  '//www.twinesocial.com');
+}
+
+if (!defined('TWINE_APPS_URL')) {
+	define('TWINE_APPS_URL',  '//apps.twinesocial.com');
+}
+
+if (!defined('TWINE_CUSTOMER_URL')) {
+	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
+}
+
+include_once ("lib/functions.php");
 require_once dirname( __FILE__ ) . '/twinesocial-admin.php';
-
-if (!defined("TWINE_PLUGIN_DIRNAME"))   define("TWINE_PLUGIN_DIRNAME",  plugin_basename(dirname(__FILE__)) );
-if (!defined("TWINE_PUBLIC_URL"))   define("TWINE_PUBLIC_URL",  "//www.twinesocial.com");
-if (!defined("TWINE_APPS_URL"))   define("TWINE_APPS_URL",  "//apps.twinesocial.com");
-if (!defined("TWINE_CUSTOMER_URL"))   define("TWINE_CUSTOMER_URL",  "//customer.twinesocial.com");
-
 
 /**
  * Register the Widget
@@ -189,7 +200,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	 */
 	function form( $instance ) {
 
-
 		$twinesocial_appdata = get_option('twinesocial_appdata');
 
 	    wp_enqueue_script('twinesocial_widget_js3', plugins_url('/js/twine.js', __file__ ) );
@@ -235,7 +245,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 						
             </p>
 
-
             <p>
                 <label for="<?php echo $this->get_field_id( 'collection' ); ?>"><?php _e('Collection', 'framework') ?>: </label><BR>
 
@@ -256,7 +265,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 			} ?>
 						
             </p>
-
 
             <!-- Widget Title: Text Input -->
             <p>
@@ -287,7 +295,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	<?php
 	}
  }
-
 
 /**
  * Display the embed of twinesocial stream
@@ -380,13 +387,13 @@ function send_welcome_email() {
 	<p>Finally, enter your account ID (see the upper righthand corner of your admin) into your WordPress plugin. And boom! You’re done!</p>
 	<p>Questions? Hit “reply” and let me know how I can help. It's what I'm here for.</p>
 	<br />
-	Samuel Weaver<br />
+	Samuel Barnett<br />
 	Customer Support<br />
 	<a href='mailto:support@twinesocial'>support@twinesocial.com</a><br /><br />
 	<img width='206' height='30' src='http://static.twinesocial.com/images/wp-logo.png' alt='TwineSocial' title='TwineSocial'>
 	";
 	$headers = "From: TwineSocial <support@twinesocial.com>\r\n";
-	$headers.= "Reply-To: Samuel Weaver <support@twinesocial.com>\r\n";
+	$headers.= "Reply-To: Samuel Barnett <support@twinesocial.com>\r\n";
 	$headers.= "X-Mailer: PHP/" . phpversion() . "\r\n";
 	$headers.= "MIME-Version: 1.0\r\n";
 	$headers.= "Content-type: text/html; charset=utf-8\r\n";
@@ -398,6 +405,4 @@ function send_welcome_email() {
 
 // Sets welcome email to send after activation.
 register_activation_hook( __FILE__, 'send_welcome_email' );
-
-
 ?>
