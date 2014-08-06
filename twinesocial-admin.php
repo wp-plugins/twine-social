@@ -1,8 +1,22 @@
 <?php
 require_once(ABSPATH . WPINC .'/pluggable.php' );
 require_once(ABSPATH . WPINC .'/template.php' );
-require_once("lib/functions.php");
 
+if (!defined('TWINE_PLUGIN_DIRNAME')) {
+	define('TWINE_PLUGIN_DIRNAME',  plugin_basename(dirname(__FILE__)) );
+}
+
+if (!defined('TWINE_PUBLIC_URL')) { 
+	define('TWINE_PUBLIC_URL',  '//www.twinesocial.com');
+}
+
+if (!defined('TWINE_APPS_URL')) {
+	define('TWINE_APPS_URL',  '//apps.twinesocial.com');
+}
+
+if (!defined('TWINE_CUSTOMER_URL')) {
+	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
+}
 add_action('admin_menu', 'twinesocial_create_setting_menu');
 
 /**

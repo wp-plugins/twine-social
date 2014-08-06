@@ -116,6 +116,9 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 == Changelog ==
 
+= 2.5.3 =
+Fixed missing constant definition.
+
 = 2.5.2 =
 BIGGEST UPDATE YET: LOADED WITH NEW FEATURES
 Significant enhancements to widget administration. Now see the status of your social connections.
