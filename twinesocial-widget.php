@@ -3,18 +3,38 @@
  * Plugin Name: Twine Social Widget
  * Plugin URI: http://www.twinesocial.com
  * Description: Display your social media content with the Twine Social Wordpress plugin - including hashtags and user content - in a beautiful and richly interactive view.
- * Version: 2.5.3
+ * Version: 2.5.5
  * Author: Nathan Elliott
  * License: GPLv2 or later
  */
 
+if (!defined('TWINE_PLUGIN_DIRNAME')) {
+	define('TWINE_PLUGIN_DIRNAME',  plugin_basename(dirname(__FILE__)) );
+}
+
+if (!defined('TWINE_PUBLIC_URL')) { 
+	define('TWINE_PUBLIC_URL',  '//www.twinesocial.com');
+}
+
+if (!defined('TWINE_APPS_URL')) {
+	define('TWINE_APPS_URL',  '//apps.twinesocial.com');
+}
+
+if (!defined('TWINE_CUSTOMER_URL')) {
+	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
+}
+
+if (!defined('INTERCOM_APP_ID')) {
+	define('INTERCOM_APP_ID',  'f9cr7xjs');
+}
+
+if (!defined('INTERCOM_APP_KEY')) {
+	define('INTERCOM_APP_KEY',  'iPhki72YJzFxWNgKcB3vDY_DNiamROnL3Erl6mFC');
+}
+
+
+include_once ("lib/functions.php");
 require_once dirname( __FILE__ ) . '/twinesocial-admin.php';
-
-if (!defined("TWINE_PLUGIN_DIRNAME"))   define("TWINE_PLUGIN_DIRNAME",  plugin_basename(dirname(__FILE__)) );
-if (!defined("TWINE_PUBLIC_URL"))   define("TWINE_PUBLIC_URL",  "//www.twinesocial.com");
-if (!defined("TWINE_APPS_URL"))   define("TWINE_APPS_URL",  "//apps.twinesocial.com");
-if (!defined("TWINE_CUSTOMER_URL"))   define("TWINE_CUSTOMER_URL",  "//customer.twinesocial.com");
-
 
 /**
  * Register the Widget
@@ -189,7 +209,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	 */
 	function form( $instance ) {
 
-
 		$twinesocial_appdata = get_option('twinesocial_appdata');
 
 	    wp_enqueue_script('twinesocial_widget_js3', plugins_url('/js/twine.js', __file__ ) );
@@ -235,7 +254,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 						
             </p>
 
-
             <p>
                 <label for="<?php echo $this->get_field_id( 'collection' ); ?>"><?php _e('Collection', 'framework') ?>: </label><BR>
 
@@ -256,7 +274,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 			} ?>
 						
             </p>
-
 
             <!-- Widget Title: Text Input -->
             <p>
@@ -287,7 +304,6 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	<?php
 	}
  }
-
 
 /**
  * Display the embed of twinesocial stream
@@ -366,38 +382,12 @@ function twinesocial_shortcode( $atts ) {
     ) );
 }
 add_shortcode( 'twinesocial', 'twinesocial_shortcode' );
-
-/**
-* This function is in charge of sending the "get started" email
-*/
-function send_welcome_email() {	
-	$to = get_bloginfo('admin_email');
-	$subject = 'Build Your Social Hub';
-	$message = "
-	<p>Hi there,</p>
-	<p>Thank you for trying TwineSocial for WordPress. I’m Samuel Barnett, here to help you create your perfect social media hub with Twine.</p>
-	<p>To start, please sign up for a <a href='http://www.twinesocial.com/?utm_source=wp-welcome'>TwineSocial account</a>. It’s totally free and <a href='http://www.twinesocial.com/?utm_source=wp-welcome'>only takes a few minutes</a>. Then, connect up your networks and hashtags.</p>
-	<p>Finally, enter your account ID (see the upper righthand corner of your admin) into your WordPress plugin. And boom! You’re done!</p>
-	<p>Questions? Hit “reply” and let me know how I can help. It's what I'm here for.</p>
-	<br />
-	Samuel Weaver<br />
-	Customer Support<br />
-	<a href='mailto:support@twinesocial'>support@twinesocial.com</a><br /><br />
-	<img width='206' height='30' src='http://static.twinesocial.com/images/wp-logo.png' alt='TwineSocial' title='TwineSocial'>
-	";
-	$headers = "From: TwineSocial <support@twinesocial.com>\r\n";
-	$headers.= "Reply-To: Samuel Weaver <support@twinesocial.com>\r\n";
-	$headers.= "X-Mailer: PHP/" . phpversion() . "\r\n";
-	$headers.= "MIME-Version: 1.0\r\n";
-	$headers.= "Content-type: text/html; charset=utf-8\r\n";
-
-	if (function_exists('wp_mail')){
-		wp_mail($to, $subject, $message, $headers);
-	}
-}
-
-// Sets welcome email to send after activation.
-register_activation_hook( __FILE__, 'send_welcome_email' );
-
+	
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'twine_add_action_links' );
+    function twine_add_action_links ( $links ) {
+        $links[] = '<a href="'. get_admin_url(null, 'admin.php?page=twinesocial-key-setting') .'">Build My Hub</a>';
+        $links[] = '<a href="http://www.twinesocial.com/" target="_blank">Learn More About Twine<a>';
+        return $links;
+    }
 
 ?>

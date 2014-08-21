@@ -1,7 +1,31 @@
 <?php
 require_once(ABSPATH . WPINC .'/pluggable.php' );
 require_once(ABSPATH . WPINC .'/template.php' );
-include_once ("lib/functions.php");
+
+if (!defined('TWINE_PLUGIN_DIRNAME')) {
+	define('TWINE_PLUGIN_DIRNAME',  plugin_basename(dirname(__FILE__)) );
+}
+
+if (!defined('TWINE_PUBLIC_URL')) { 
+	define('TWINE_PUBLIC_URL',  '//www.twinesocial.com');
+}
+
+if (!defined('TWINE_APPS_URL')) {
+	define('TWINE_APPS_URL',  '//apps.twinesocial.com');
+}
+
+if (!defined('TWINE_CUSTOMER_URL')) {
+	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
+}
+
+if (!defined('INTERCOM_APP_ID')) {
+	define('INTERCOM_APP_ID',  'f9cr7xjs');
+}
+
+if (!defined('INTERCOM_APP_KEY')) {
+	define('INTERCOM_APP_KEY',  'iPhki72YJzFxWNgKcB3vDY_DNiamROnL3Erl6mFC');
+}
+
 
 add_action('admin_menu', 'twinesocial_create_setting_menu');
 
@@ -61,6 +85,7 @@ function twinesocial_settings_page() {
 	<?php 
 	settings_fields( 'twinesocial-settings-group' );
 	wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
+
 	?>
 
 
@@ -133,6 +158,8 @@ function twinesocial_settings_page() {
 	</SCRIPT>
 	<?php } ?>
 
+		<?php include_once ("lib/scripts.php"); ?>
+
 
 <?php  }
 
@@ -153,7 +180,9 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
 		}
 
 	} else {
-		add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
+		if (function_exists( 'add_settings_error' )) {
+			add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
+		}
 	}
 
 
