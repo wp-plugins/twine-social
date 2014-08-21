@@ -22,6 +22,10 @@ if (!defined('TWINE_CUSTOMER_URL')) {
 if (!defined('INTERCOM_APP_ID')) {
 	define('INTERCOM_APP_ID',  'f9cr7xjs');
 }
+
+if (!defined('INTERCOM_APP_KEY')) {
+	define('INTERCOM_APP_KEY',  'iPhki72YJzFxWNgKcB3vDY_DNiamROnL3Erl6mFC');
+}
  
 function twinesocial_create_setting_menu() {
     global $twinesocial_admin_page;    
