@@ -42,13 +42,4 @@ function twine_remove_footer_version ()
 
 add_filter( 'update_footer', 'twine_remove_footer_version', 11 );
 add_filter('admin_footer_text', 'twine_remove_footer_admin');
-add_filter( 'plugin_action_links' , 'add_action_links' );
-
-function add_action_links ( $links ) {
-	$links[] = '<a href="'. get_admin_url(null, 'admin.php?page=twinesocial-key-setting') .'">Build My Hub</a>';
-	$links[] = '<a href="http://www.twinesocial.com/" target="_blank">Learn More About Twine<a>';
-	return $links;
-}
-
-
 ?>
