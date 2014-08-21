@@ -25,7 +25,7 @@ if (!defined('TWINE_CUSTOMER_URL')) {
 }
 
 if (!defined('INTERCOM_APP_ID')) {
-	define('INTERCOM_APP_ID',  'wm2iig5v');
+	define('INTERCOM_APP_ID',  'f9cr7xjs');
 }
 
 include_once ("lib/functions.php");
