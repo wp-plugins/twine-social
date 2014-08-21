@@ -3,7 +3,7 @@ Contributors: Nathan Elliott, Aaron Fessler
 Tags: Twine Social, facebook widget, twitter widget, instagram widget, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, plus one, google widget, share this, sharethis, socialize, addthis, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
 Tested up to: 3.9.1
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface.
