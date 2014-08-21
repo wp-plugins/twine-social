@@ -373,45 +373,7 @@ function twinesocial_shortcode( $atts ) {
     ) );
 }
 add_shortcode( 'twinesocial', 'twinesocial_shortcode' );
-
-/**
-* This function is in charge of sending the "get started" email
-*/
 	
-function twine_send_welcome_email() {	
-	if (get_option('twine_welcome_email_sent', 'sent') == true) {
-		// do not send the email
-	} else {
-		$to = get_bloginfo('admin_email');
-		$subject = 'Build Your Social Hub';
-		$message = "
-		<p>Hi there,</p>
-		<p>Thank you for trying TwineSocial for WordPress. I’m Samuel Barnett, here to help you create your perfect social media hub with Twine.</p>
-		<p>To start, please sign up for a <a href='http://www.twinesocial.com/?utm_source=wp-welcome'>TwineSocial account</a>. It’s totally free and <a href='http://www.twinesocial.com/?utm_source=wp-welcome'>only takes a few minutes</a>. Then, connect up your networks and hashtags.</p>
-		<p>Finally, enter your account ID (see the upper righthand corner of your admin) into your WordPress plugin. And boom! You’re done!</p>
-		<p>Questions? Hit “reply” and let me know how I can help. It's what I'm here for.</p>
-		<br />
-		Samuel Barnett<br />
-		Customer Support<br />
-		<a href='mailto:support@twinesocial'>support@twinesocial.com</a><br /><br />
-		<img width='206' height='30' src='http://static.twinesocial.com/images/wp-logo.png' alt='TwineSocial' title='TwineSocial'>
-		";
-		$headers = "From: TwineSocial <support@twinesocial.com>\r\n";
-		$headers.= "Reply-To: Samuel Barnett <support@twinesocial.com>\r\n";
-		$headers.= "X-Mailer: PHP/" . phpversion() . "\r\n";
-		$headers.= "MIME-Version: 1.0\r\n";
-		$headers.= "Content-type: text/html; charset=utf-8\r\n";
-
-		if (function_exists('wp_mail')){
-			wp_mail($to, $subject, $message, $headers);
-		}
-		update_option('twine_welcome_email_sent', 'sent');	
-	}
-}
-
-// Sets welcome email to send after activation.
-register_activation_hook( __FILE__, 'twine_send_welcome_email' );
-
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'twine_add_action_links' );
     function twine_add_action_links ( $links ) {
         $links[] = '<a href="'. get_admin_url(null, 'admin.php?page=twinesocial-key-setting') .'">Build My Hub</a>';
