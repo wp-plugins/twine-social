@@ -17,6 +17,11 @@ if (!defined('TWINE_APPS_URL')) {
 if (!defined('TWINE_CUSTOMER_URL')) {
 	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
 }
+
+if (!defined('INTERCOM_APP_ID')) {
+	define('INTERCOM_APP_ID',  'wm2iig5v');
+}
+
 add_action('admin_menu', 'twinesocial_create_setting_menu');
 
 /**
@@ -147,6 +152,8 @@ function twinesocial_settings_page() {
 		TwineSocialAppData = <?php echo $twinesocial_appdata?>;
 	</SCRIPT>
 	<?php } ?>
+
+		<?php include_once ("lib/scripts.php"); ?>
 
 
 <?php  }

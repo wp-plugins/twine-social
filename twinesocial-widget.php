@@ -24,6 +24,10 @@ if (!defined('TWINE_CUSTOMER_URL')) {
 	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
 }
 
+if (!defined('INTERCOM_APP_ID')) {
+	define('INTERCOM_APP_ID',  'wm2iig5v');
+}
+
 include_once ("lib/functions.php");
 require_once dirname( __FILE__ ) . '/twinesocial-admin.php';
 
