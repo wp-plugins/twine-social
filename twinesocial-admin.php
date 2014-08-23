@@ -41,12 +41,18 @@ function twinesocial_settings_page() {
 
     wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
-	$twinesocial_baseUrl        = get_option('twinesocial_baseUrl');
+	$twinesocial_baseUrl = get_option('twinesocial_baseUrl');
+
+	// if we get redirected back here from TwineSocial after account creation, store the account ID in the wp_options table
+	if ($_GET['twine_account_id']) {
+		update_option('twinesocial_accountid', $_GET['twine_account_id'] );
+	}
 
 	$twinesocial_accountid = get_option('twinesocial_accountid');
 
+
 	// refresh the collections and apps from Twine
-	$accountId = get_option('twinesocial_accountid') ? get_option('twinesocial_accountid') : $_GET['twine_account_id'];
+	$accountId = $twinesocial_accountid ? $twinesocial_accountid : $_GET['twine_account_id'];
 	if ($accountId) {
 		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . $accountId);
 
