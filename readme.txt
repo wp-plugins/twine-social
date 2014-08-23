@@ -118,6 +118,8 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 = 2.5.5 =
 Fixed issue with duplicate Wordpress admin function name
+Improved signup process
+Added Intercom.io support desk UI elements
 
 = 2.5.3 =
 Fixed missing constant definition.

@@ -46,8 +46,9 @@ function twinesocial_settings_page() {
 	$twinesocial_accountid = get_option('twinesocial_accountid');
 
 	// refresh the collections and apps from Twine
-	if (get_option('twinesocial_accountid')) {
-		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . get_option('twinesocial_accountid'));
+	$accountId = get_option('twinesocial_accountid') ? get_option('twinesocial_accountid') : $_GET['twine_account_id'];
+	if ($accountId) {
+		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . $accountId);
 
 		if (!is_wp_error( $result) ) {
 			$js = json_decode(wp_remote_retrieve_body($result));
@@ -102,10 +103,21 @@ function twinesocial_settings_page() {
 			<div class="span12">
 				<div class="page-header">
 					<img src="http://static.twinesocial.com/website/aggregate-and-moderate-head.png" style="max-width:60%;padding:20px;">
-					<h2>Display Official &amp; Fan-Posted Content<br>
-						<small>In an Engaging Social Media Hub</small>
+					<h2>Display Your Social Media<br>
+						<small>Beautiful Social Media Hubs for Wordpress</small>
 					</h2>					
-					<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social.  Include your entire brand story—from all your networks—on your hub. 				
+					<P class="social-icon-row">
+						<i class="fa fa-facebook-square"></i>
+						<i class="fa fa-twitter-square"></i>
+						<i class="fa fa-instagram"></i>
+						<i class="fa fa-youtube-square"></i>
+						<i class="fa fa-linkedin-square"></i>
+						<i class="fa fa-pinterest-square"></i>
+						<i class="fa fa-vimeo-square"></i>
+						<i class="fa fa-tumblr-square"></i>
+						<i class="fa fa-google-plus-square"></i>
+					</p>
+					<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social.  Include your entire brand story—from all your networks—on your Wordpress Blog. 				
 				</div>				
 			</div>				
 		</div>
