@@ -5,10 +5,11 @@ $adminuser = wp_get_current_user();
 <script id="IntercomSettingsScriptTag">
 
   window.intercomSettings = {
+    account: "<?php echo get_option('twinesocial_accountid')?>",
     name: "<?php echo $adminuser->display_name?>",
     email: "<?php echo $adminuser->user_email?>",
-    wordpress_url: "<?php echo get_bloginfo('wpurl')?>",
-    source: "Wordpress",
+    "wordpress url": "<?php echo get_bloginfo('wpurl')?>",
+    "source": "Wordpress",
     app_id: "<?php echo INTERCOM_APP_ID?>",
     user_hash: "<?php echo hash_hmac('sha256', $adminuser->user_email, INTERCOM_APP_KEY)?>"
 
