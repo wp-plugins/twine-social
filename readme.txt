@@ -2,8 +2,8 @@
 Contributors: Nathan Elliott, Aaron Fessler
 Tags: Twine Social, facebook widget, twitter widget, instagram widget, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, plus one, google widget, share this, sharethis, socialize, addthis, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 2.5.5
+Tested up to: 4.0
+Stable tag: 2.5.6
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) on your Wordpress blog in one beautiful interface.
@@ -36,7 +36,7 @@ Your customers see your brand in action, making Twine the perfect social media h
 
 **IMPORTANT: You will FIRST need to go to [Twine Social](http://www.twinesocial.com), sign up for a FREE account before you can embed it into your Wordpress Site. ** 
 
-If you have any questions or feedback, please visit our [support forum](http://twinesocial.uservoice.com/), or email us at support{at}twinesocial.com.
+If you have any questions or feedback, please visit our [support forum](http://support.twinesocial.com/), or email us at support{at}twinesocial.com.
 
 == Installation ==
 
@@ -115,6 +115,10 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 2.5.6 =
+Tested with WP 4.0.
+Updated reference to admin fonts.
 
 = 2.5.5 =
 Fixed issue with duplicate Wordpress admin function name
