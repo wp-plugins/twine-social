@@ -21,10 +21,10 @@
 					<div class="twine-widget-close" data-toggle="collapse">X</div>
 				</div>
 				<div class="twine-widget-content">
-					<P>Stuck? We're here to help. Visit our Support Community, or open a trouble ticket.</p>
+					<P>Stuck? We're here to help. Visit our Support Community, or ask us a question.</p>
 
 					<A href="http://support.twinesocial.com/hc/en-us" target="_blank" class="btn btn-default btn-sm">Support Forum</a>
-					<A href="http://support.twinesocial.com/hc/en-us/requests/new" target="_blank" class="btn btn-default btn-sm">Open a Ticket</a>
+					<a onClick="Intercom('show');" class="btn btn-default btn-sm">Open a Ticket</a>
 
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 					</UL>
 					</p>
 					<P>Find out why Enterprises and Agencies trust TwineSocial.</p>
-					<A href="mailto:sales@twinesocial.com" class="btn btn-default btn-sm">Contact Us</a>
+					<A onClick="Intercom('show');" class="btn btn-default btn-sm">Contact Us</a>
 				</div>
 			</div>
 		</div>

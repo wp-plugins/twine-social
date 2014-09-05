@@ -64,6 +64,25 @@
 	src: url('http://www.twinesocial.com/fonts/proxima-nova/proximanova-lightit-webfont.woff') format('woff');
 }
 
+.bootstrap-wpadmin.twine .social-icon-row i {
+	font-size:42px;
+	padding:5px;
+}
+
+.btn.facebook {
+	background: #3b5998 !important;
+	color:white !important;
+	text-shadow:none !important;
+}
+
+.btn.twitter {
+	background: #00acee  !important;
+	color:white !important;
+	text-shadow:none !important;
+}
+
+
+
 #signupModal h1 {
 	font-family: 'Proxima-Bold', Helvetica, Sans-serif;
 	color: #fec400;
@@ -92,7 +111,7 @@ line-height: 1.2;
 
 .bootstrap-wpadmin.twine .page-header h2 small {
 font-family: 'Proxima-Light',sans-serif;
-font-size: 50px;
+font-size: 36px;
 }
 
 .bootstrap-wpadmin.twine table .img-thumbnail {height:48px;width:48px;}
