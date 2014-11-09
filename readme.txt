@@ -1,6 +1,6 @@
 === TwineSocial: Show your social media content in a easy and beautiful interface ===
 Contributors: Nathan Elliott, Aaron Fessler
-Tags: TwineSocial, facebook widget, twitter widget, instagram widget, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, display social media, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, plus one, google widget, share this, sharethis, socialize, addthis, autoblogger, autoblog, feed aggregator
+Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
 Tested up to: 4.0
 Stable tag: 2.5.7
@@ -31,6 +31,7 @@ Your customers see your brand in action, making TwineSocial the perfect social m
 * Infinite scroll: load more content simply by scrolling to the bottom of the page.
 * Auto-approve all your user generated content, or set it up for prior moderation.
 * Custom CSS: Style it to fit your brand.
+* Cast your content to Google Chromecast with immersive, beautiful layouts for live events
 * Advanced Analytics: Get an automatic weekly email showing your likes and follower performance over time.
 
 If you have any questions or feedback, please visit our [support forum](http://support.twinesocial.com/), or email us at support{at}twinesocial.com.
