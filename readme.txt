@@ -15,7 +15,7 @@ Display your social media content (Facebook, Twitter, Google+, Instagram, YouTub
 
 This plugin makes it super easy to add your social media content (including #hashtags, @accounts, videos, photos, and tweets) from any social media network to your Wordpress Blog. [TwineSocial](http://www.twinesocial.com) is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your Wordpress site.
 
-Your customers see your brand in action, making Twine the perfect social media hub.
+Your customers see your brand in action, making TwineSocial the perfect social media hub.
 
 = Features =
 
@@ -51,13 +51,13 @@ TwineSocial can be displayed on the Wordpress sidebar or embedded in your page a
 
 That's it!
 
-= Instructions for placing your Twine feed in a Wordpress template sidebar =
+= Instructions for placing your TwineSocial feed in a Wordpress template sidebar =
 
 1. Go to the Appearance -> Widgets, drag the "TwineSocial" widget to your "Main Sidebar"
 2. Choose from your list of available TwineSocial applications.
 3. Setup height. (Leave height blank for 100%).
 
-= Instructions for placing your Twine feed directly in a post or page using shortcode =
+= Instructions for placing your TwineSocial feed directly in a post or page using shortcode =
 
 1. Create a new Post and click on the HTML or Text option on the top-right hand side of the post. 
 2. Use the shortcode twine: Example [twinesocial app='SITE'] (Note: Replace SITE with your application name.)
@@ -87,7 +87,7 @@ Connect any combination of social media feeds, including hashtags, from any soci
 [TwineSocial](http://www.twinesocial.com) is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.
 
 
-= What does Twine cost? =
+= What does TwineSocial cost? =
 
 It’s totally free! When you install this plugin, we’ll give you a full-access account for 30 days. If you choose not to buy a paid plan (unlocking additional sweet features), your account will automatically convert to a free account. No credit card required.
 
