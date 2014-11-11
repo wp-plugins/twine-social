@@ -32,7 +32,7 @@ Your customers see your brand in action, making TwineSocial the perfect social m
 * Auto-approve all your user generated content, or set it up for prior moderation.
 * Custom CSS: Style it to fit your brand.
 * Cast your content to Google Chromecast with immersive, beautiful layouts for live events
-* Advanced Analytics: Get an automatic weekly email showing your likes and follower performance over time.
+* Advanced Analytics: Find out who uses your social hub, and how they interact with it.
 
 If you have any questions or feedback, please visit our [support forum](http://support.twinesocial.com/), or email us at support{at}twinesocial.com.
 
@@ -73,7 +73,7 @@ Arguments supported by the shortcode:
 * 'scroll=auto' for infinite scrolling
 
 Shortcode example:
-[twinesocial site_name=“WCD” topic=“Videos”]
+[twinesocial app=“WCD”]
 
 == Frequently Asked Questions == 
  

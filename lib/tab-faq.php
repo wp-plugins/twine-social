@@ -101,37 +101,6 @@
 
 					<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>, or <a onClick="Intercom('show');" >ask us a question</a>.</p>
 
-					<HR>
-
-
-					<Code>
-					= 2.0 =<BR>
-					* Now featuring Collection Navigation.<BR>
-					* Support for infinite scroll in the sidebar Widget<BR>
-					* Improved documentation.<BR>
-					* Tested with Wordpress 3.8.1.
-					<BR>
-					= 1.4 =<BR>
-					* Now with even more beautiful layouts for responsive, mobile, and table displays.<BR>
-					<BR>
-					= 1.3.1 =<BR>
-					* Added new support multiple Twine Social applications. Choose your specific application when setting up the Wordpress Widget.<BR>
-					<BR>
-					= 1.3 =<BR>
-					* Added new support for Collections in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Collections in your <a href="http://<?php echo TWINE_CUSTOMER_URL?>">Twine Social Admin Console</a>.<BR>
-					<BR>
-					= 1.2 =<BR>
-					* Improved support for transparent IFRAMES<BR>
-					<BR>
-					= 1.1 =<BR>
-					* Upgraded support libraries to Bootstrap 3.<BR>
-					<BR>
-					= 1.0 =<BR>
-					* Initial Version<BR>
-					== Upgrade Notice ==<BR>
-					No problems should be encountered when upgrading.<BR>
-					</code>
-
 
 		</div>
 			</div>
