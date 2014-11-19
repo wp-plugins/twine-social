@@ -17,14 +17,13 @@
 		<div class="span5">
 			<div class="twine-widget">
 				<div class="twine-widget-title">
-					Get Help
+					Need Help? Ask us!
 					<div class="twine-widget-close" data-toggle="collapse">X</div>
 				</div>
 				<div class="twine-widget-content">
 					<P>Stuck? We're here to help. Visit our Support Community, or ask us a question.</p>
 
-					<A href="http://support.twinesocial.com/hc/en-us" target="_blank" class="btn btn-default btn-sm">Support Forum</a>
-					<a onClick="Intercom('show');" class="btn btn-default btn-sm">Open a Ticket</a>
+					<A href="http://support.twinesocial.com/" target="_blank" class="btn btn-default btn-sm">Support Forum</a>
 
 				</div>
 			</div>
@@ -47,7 +46,7 @@
 					</UL>
 					</p>
 					<P>Find out why Enterprises and Agencies trust TwineSocial.</p>
-					<A onClick="Intercom('show');" class="btn btn-default btn-sm">Contact Us</a>
+					<A href="http://www.twinesocial.com" target="_blank" class="btn btn-default btn-sm">Contact Us</a>
 				</div>
 			</div>
 		</div>

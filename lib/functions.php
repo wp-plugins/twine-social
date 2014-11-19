@@ -19,14 +19,6 @@ if (!defined('TWINE_CUSTOMER_URL')) {
 	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
 }
 
-if (!defined('INTERCOM_APP_ID')) {
-	define('INTERCOM_APP_ID',  'f9cr7xjs');
-}
-
-if (!defined('INTERCOM_APP_KEY')) {
-	define('INTERCOM_APP_KEY',  'iPhki72YJzFxWNgKcB3vDY_DNiamROnL3Erl6mFC');
-}
- 
 function twinesocial_create_setting_menu() {
     global $twinesocial_admin_page;    
     $twinesocial_admin_page = add_menu_page( 'Twine Social Settings', 'TwineSocial', 'manage_options', 'twinesocial-key-setting', 'twinesocial_settings_page', plugins_url( 'twine-social/images/icon.png' ) );

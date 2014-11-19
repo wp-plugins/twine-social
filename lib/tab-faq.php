@@ -24,7 +24,7 @@
 					<P>IMPORTANT: You will FIRST need to go to <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a>, sign up for a FREE account before you can embed it into your Wordpress site.
 					</div>
 
-					<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum</a>, or <a onClick="Intercom('show');">ask a question now</a>.</p>
+					<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum.</p>
 
 
 					<H3>Installation</H3>
@@ -99,7 +99,7 @@
 
 					<H3>Help, I'm having a problem!</H3>
 
-					<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>, or <a onClick="Intercom('show');" >ask us a question</a>.</p>
+					<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>.</p>
 
 
 		</div>
