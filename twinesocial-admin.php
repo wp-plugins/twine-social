@@ -1,7 +1,22 @@
 <?php
 require_once(ABSPATH . WPINC .'/pluggable.php' );
 require_once(ABSPATH . WPINC .'/template.php' );
-include_once ("lib/functions.php");
+
+if (!defined('TWINE_PLUGIN_DIRNAME')) {
+	define('TWINE_PLUGIN_DIRNAME',  plugin_basename(dirname(__FILE__)) );
+}
+
+if (!defined('TWINE_PUBLIC_URL')) { 
+	define('TWINE_PUBLIC_URL',  '//www.twinesocial.com');
+}
+
+if (!defined('TWINE_APPS_URL')) {
+	define('TWINE_APPS_URL',  '//apps.twinesocial.com');
+}
+
+if (!defined('TWINE_CUSTOMER_URL')) {
+	define('TWINE_CUSTOMER_URL',  '//customer.twinesocial.com');
+}
 
 add_action('admin_menu', 'twinesocial_create_setting_menu');
 
@@ -17,13 +32,18 @@ function twinesocial_settings_page() {
 
     wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
 
-	$twinesocial_baseUrl        = get_option('twinesocial_baseUrl');
+	$twinesocial_baseUrl = get_option('twinesocial_baseUrl');
 
-	$twinesocial_accountid = get_option('twinesocial_accountid');
+	// if we get redirected back here from TwineSocial after account creation, store the account ID in the wp_options table
+	if (isset($_GET['twine_account_id']) && $_GET['twine_account_id']) {
+		update_option('twinesocial_accountid', $_GET['twine_account_id'] );
+	}
+
+	$twinesocial_accountid = get_option('twinesocial_accountid') ? get_option('twinesocial_accountid') : (isset($_GET['twine_account_id']) ? $_GET['twine_account_id'] : null);
 
 	// refresh the collections and apps from Twine
-	if (get_option('twinesocial_accountid')) {
-		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . get_option('twinesocial_accountid'));
+	if ($twinesocial_accountid) {
+		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . $twinesocial_accountid);
 
 		if (!is_wp_error( $result) ) {
 			$js = json_decode(wp_remote_retrieve_body($result));
@@ -61,6 +81,7 @@ function twinesocial_settings_page() {
 	<?php 
 	settings_fields( 'twinesocial-settings-group' );
 	wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
+
 	?>
 
 
@@ -77,10 +98,21 @@ function twinesocial_settings_page() {
 			<div class="span12">
 				<div class="page-header">
 					<img src="http://static.twinesocial.com/website/aggregate-and-moderate-head.png" style="max-width:60%;padding:20px;">
-					<h2>Display Official &amp; Fan-Posted Content<br>
-						<small>In an Engaging Social Media Hub</small>
+					<h2>Display Your Social Media<br>
+						<small>Beautiful Social Media Hubs for Wordpress</small>
 					</h2>					
-					<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social.  Include your entire brand story—from all your networks—on your hub. 				
+					<P class="social-icon-row">
+						<i class="fa fa-facebook-square"></i>
+						<i class="fa fa-twitter-square"></i>
+						<i class="fa fa-instagram"></i>
+						<i class="fa fa-youtube-square"></i>
+						<i class="fa fa-linkedin-square"></i>
+						<i class="fa fa-pinterest-square"></i>
+						<i class="fa fa-vimeo-square"></i>
+						<i class="fa fa-tumblr-square"></i>
+						<i class="fa fa-google-plus-square"></i>
+					</p>
+					<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social.  Include your entire brand story—from all your networks—on your Wordpress Blog. 				
 				</div>				
 			</div>				
 		</div>
@@ -153,7 +185,9 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce(
 		}
 
 	} else {
-		add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
+		if (function_exists( 'add_settings_error' )) {
+			add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
+		}
 	}
 
 
