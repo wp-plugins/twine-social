@@ -3,7 +3,7 @@
  * Plugin Name: Twine Social Widget
  * Plugin URI: http://www.twinesocial.com
  * Description: Display your social media content with the Twine Social Wordpress plugin - including hashtags and user content - in a beautiful and richly interactive view.
- * Version: 2.5.8
+ * Version: 2.6
  * Author: Nathan Elliott
  * License: GPLv2 or later
  */
@@ -45,9 +45,9 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	private $app = "";
 	private $height = "";
 	private $width = "";
+	private $language="en";
 	private $scroll = "";
 	private $collection = "";
-	private $carousel = "1";
 	private $nav = "0";
 	private $noAnimate = false;
 
@@ -84,8 +84,8 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
 		$this->height     = $instance['height'];
 		$this->app        = $instance['app'];
+		$this->language   = $instance['language'];
 		$this->collection = isset($instance['collection']) ? $instance['collection'] : null;
-		$this->carousel   = isset($instance['carousel']) ? $instance['carousel'] : null;
 		$this->scroll     = $instance['scroll'];
 		$this->noAnimate  = true ;
 
@@ -99,9 +99,9 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
         $this->render( array('app' => $this->app
                             , 'collection' => $this->collection
                             , 'height' => $this->height
-                            , 'carousel' => $this->carousel
                             , 'noAnimate' => $this->noAnimate
                             , 'scroll' => $this->scroll
+                            , 'language' => $this->language
                             , 'nav' => $this->nav
                             ) );
 
@@ -126,7 +126,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                                     , 'width' => ''
                                     , 'collection' => ''
                                     , 'scroll' => ''
-                                    , 'carousel' => ''
+                                    , 'language' => ''
                                     , 'noAnimate'=>false
                                     , 'nav' => ''
                                     ) );
@@ -149,8 +149,8 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
         if ( !empty( $r['collection'] ) )
             $url = add_query_arg( 'collection', $r['collection'], $url );
 
-        if ($r['carousel']=="1")
-            $url = add_query_arg( 'showCarousel', "1", $url );
+       if ( !empty( $r['language'] ) )
+            $url = add_query_arg( 'lang', $r['language'], $url );
 
         if ($r['nav']=="1")
             $url = add_query_arg( 'showNav', "1", $url );
@@ -189,9 +189,9 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
 		$instance['height'] = strip_tags( $new_instance['height'] );
 		$instance['collection'] = strip_tags( $new_instance['collection'] );
-		$instance['carousel'] = strip_tags( $new_instance['carousel'] );
 		$instance['nav'] = strip_tags( $new_instance['nav'] );
 		$instance['scroll'] = strip_tags( $new_instance['scroll'] );
+		$instance['language'] = strip_tags( $new_instance['language'] );
 
 		return $instance;
 	}
@@ -222,9 +222,9 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                 'app' => $this->app,
                 'height' => $this->height,
                 'collection' => $this->collection,
-                'carousel' => $this->carousel,
                 'scroll' => $this->scroll,
                 'nav' => $this->nav,
+                'language' => $this->language,
                 'width' => $this->width,
             );
 
@@ -274,6 +274,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 							}
 						}
 					echo '</SELECT>';
+
 			} ?>
 						
             </p>
@@ -294,6 +295,17 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                 <input type="text" id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" value="<?php echo $instance['height']; ?>" size="5" />px
                 <br> <small>Initial height of the sidebar widget.</small>
             </p>
+
+			<p>Language:
+
+			<SELECT id="twinesocial_language" name="<?php echo $this->get_field_name('language'); ?>">
+				<?php foreach ($js->languages as $language) {
+						$sel = $instance['language']==$language->culture ? 'selected="selected"' : '';
+						echo '<OPTION ' . $sel . ' value="' . $language->culture . '">' . $language->name . '</option>';
+				}
+			echo '</SELECT>'; ?>
+		</p>
+
 
             <p>
                 <input type="checkbox" value="yes" id="<?php echo $this->get_field_id( 'scroll' ); ?>" name="<?php echo $this->get_field_name( 'scroll' ); ?>"  <?php echo $instance['scroll'] ? "checked='checked'" : "" ?> />
@@ -358,14 +370,13 @@ function twinesocial_shortcode( $atts ) {
         $collection = urlencode($atts['collection']);
     }
 
+    if (isset($atts['language']) && ! empty( $atts['language'] ) ) {
+        $language = urlencode($atts['language']);
+    }
+
     $scroll = '';
     if (empty($atts['scroll'])) {
         $scroll = "no";
-    }
-
-    $carousel = '0';
-    if (isset($atts['carousel']) && ! empty( $atts['carousel'] ) ) {
-        $carousel = $atts['carousel'];
     }
 
     $nav = '0';
@@ -378,10 +389,10 @@ function twinesocial_shortcode( $atts ) {
         'height'        => $height,
         'scroll'        => $scroll,
         'collection'        => $collection,
+        'language'        => $language,
         'width'        => $width,
         'nav'        => $nav,
-        'noAnimate'        => false,
-        'carousel'        => $carousel
+        'noAnimate'        => false
     ) );
 }
 add_shortcode( 'twinesocial', 'twinesocial_shortcode' );

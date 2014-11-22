@@ -3,7 +3,7 @@ Contributors: Nathan Elliott, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 2.5.8
+Stable tag: 2.6
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning wall.
@@ -28,6 +28,7 @@ Your customers see your brand in action, making TwineSocial the perfect social m
 * Group your content by category (Press Reviews, Blog, News, Products, Events), and embed slices of your social media stream on individual Wordpress pages.
 * Permalinks to each of your social media tiles, optimized for SEO.
 * Responsive grid for dynamic layouts.
+* Multi-lingual, with support for many common languages.
 * Infinite scroll: load more content simply by scrolling to the bottom of the page.
 * Auto-approve all your user generated content, or set it up for prior moderation.
 * Custom CSS: Style it to fit your brand.
@@ -106,6 +107,9 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 2.6 =
+Added multi-lingual support for languages and cultures, including English, French, Italian, German, Swedish, Spanish
 
 = 2.5.8 =
 Removed Intercom support links.
