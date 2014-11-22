@@ -2,14 +2,12 @@ jQuery(document).ready(function() {
 
 		console.log('ready!');
 
-	jQuery('input[name="twinesocial_page_nav"], input[name="twinesocial_page_auto_scroll"], select#twinesocial_collection').change(function() {
+	jQuery('input[name="twinesocial_page_nav"], input[name="twinesocial_page_auto_scroll"], select#twinesocial_collection, select#twinesocial_language').change(function() {
 		GenerateShortCode();
 	});
 	
 	jQuery("#twinesocial_baseUrl" ).change(function() {
 	
-		console.log('click!');
-
 		baseUrl = jQuery('#twinesocial_baseUrl').val();
 		
 		for (var i=0;i<TwineSocialAppData.apps.length;i++) {
@@ -44,6 +42,8 @@ function GenerateShortCode() {
 		if (!parseInt(jQuery('select#twinesocial_collection').val())==0) {
 			shortcode += ' collection="' + jQuery('select#twinesocial_collection').val() + '"';
 		}
+
+		shortcode += ' language="' + jQuery('select#twinesocial_language').val() + '"';
 
 		jQuery('.twine pre').text('[' + shortcode + ']');
 
