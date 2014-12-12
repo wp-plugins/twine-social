@@ -110,6 +110,7 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 = 2.6 =
 Added multi-lingual support for languages and cultures, including English, French, Italian, German, Swedish, Spanish
+Minor bug fix for Widget Title
 
 = 2.5.8 =
 Removed Intercom support links.

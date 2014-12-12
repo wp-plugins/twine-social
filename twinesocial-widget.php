@@ -93,7 +93,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 		echo $before_widget;
 
 		/* Display the widget title if one was input (before and after defined by themes). */
-		if ( $this->widget_title )
+		if ($this->widget_title)
 			echo $before_title . $this->widget_title . $after_title;
 
         $this->render( array('app' => $this->app
@@ -186,11 +186,12 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 
 		/* Strip tags for title and name to remove HTML (important for text inputs). */
 		$instance['app'] = strip_tags( $new_instance['app'] );
-
+		$instance['widget_title'] = strip_tags( $new_instance['widget_title'] );
 		$instance['height'] = strip_tags( $new_instance['height'] );
 		$instance['collection'] = strip_tags( $new_instance['collection'] );
 		$instance['nav'] = strip_tags( $new_instance['nav'] );
 		$instance['scroll'] = strip_tags( $new_instance['scroll'] );
+		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['language'] = strip_tags( $new_instance['language'] );
 
 		return $instance;
