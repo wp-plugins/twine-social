@@ -50,6 +50,25 @@
 					</div>
 
 
+					<div class="form-group">
+						<SELECT class="form-control" name="twinesocial_language" id="twinesocial_language">
+							<?php 
+							if ($twinesocial_appdata) {
+								$js = json_decode($twinesocial_appdata);
+								if (isset($js->languages)) {
+
+									foreach ($js->languages as $language) {
+											echo '<OPTION value="' . $language->culture . '">' . $language->name . ' language</option>';
+									  }
+								  }
+								}
+							?>
+
+
+						</SELECT>
+					</div>
+
+
 
 					<h4>Optional/Advanced Settings</h4>
 
@@ -71,11 +90,7 @@
 					<h4>Embed Your Shortcode.</h4>
 					<P>Copy and paste this Wordpress shortcode on any Wordpress Page or Post:</p>
 
-					<pre id="embed-code">[twinesocial app="<?php echo json_decode($twinesocial_appdata)->apps[0]->baseUrl?>"]</pre>
-
-
-
-
+					<pre id="embed-code">[twinesocial app="<?php echo json_decode($twinesocial_appdata)->apps[0]->baseUrl?>" language="en"]</pre>
 
 				</div>
 			</div>

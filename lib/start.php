@@ -1,13 +1,18 @@
+<?php $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "https://" : "http://"; ?>
+
 <div class="row-fluid">
-	<div class="span12">
-		<P>If you haven't already, you'll need to get your free account at <a target="_blank" href="<?php echo TWINE_PUBLIC_URL?>/">Twine Social</a> to use this plugin. Already have an account? Sweet! Simply enter your Twine Social Account ID below. We'll show you a list of your active Twine Social apps. Pick one, and embed the Short Code on any page, including a WordPress widget sidebar. </p>
+	<div class="span12" style="text-align:center;">
+		<a href="<?php echo TWINE_PUBLIC_URL?>/signup/new?network=Twitter&redirect=<?php echo urlencode($protocol . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])?>" class="btn btn-default twitter"><i class="fa fa-twitter"></i> Connect Twitter Account</a>						
+		<a href="<?php echo TWINE_PUBLIC_URL?>/signup/new?network=Facebook&redirect=<?php echo urlencode($protocol . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])?>" class="btn btn-default facebook"><i class="fa fa-facebook"></i> Connect Facebook Account</a>				
 	</div>
 </div>
+
+<HR>
 
 <div class="row-fluid">
 	<div class="span7">
 		<div class="form-group <?php echo $twinesocial_accountid && !$twinesocial_appdata ? "has-error" : ""?>">
-			<label>Twine Social Account #:</label>
+			<label>Already have a TwineSocial account? Add your Account # here:</label>
 			<input type="text" name="accountid" value="<?php echo $twinesocial_accountid ?>" class="form-control input-lg" placeholder="13-AQBHZM">
 		</div>			
 		<div class="form-group">
@@ -22,13 +27,13 @@
 		</div>
 
 		<?php if ($twinesocial_accountid && !$twinesocial_appdata) {?>
-			<div class="alert alert-danger">That is not a valid Twine Social account ID. You can find your Account ID by logging into your account and clicking Settings in the upper right corner.</div>
+			<div class="alert alert-danger">That is not a valid TwineSocial Account #. You can find your Account # by logging into your account and clicking Settings in the upper right corner.</div>
 		<?php } ?>
 		
 	</div>
 	<div class="span5 <?php echo $twinesocial_appdata ? 'hide' : ''?>">
 		<img class="img-thumbnail" src="<?php echo plugin_dir_url( __FILE__ ) . '../images/find-my-account-id.png'?>">
-		<P><span class="help-block">Looking for your Twine Social Account ID? You can find it by <a href="<?php echo TWINE_CUSTOMER_URL?>/" target="_new">logging in</a>. Click on settings in the top right hand corner Look for a short code, like <b>13-ICZ5I4</b>. </span></p>
+		<P><span class="help-block"><i class="fa fa-exclamation-circle"></i> Find your TwineSocial Account # by <a href="<?php echo TWINE_CUSTOMER_URL?>/" target="_new">logging in</a>. Click on settings in the top right hand corner. </span></p>
 	</div>
 
 </div>

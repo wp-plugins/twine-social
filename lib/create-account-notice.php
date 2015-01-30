@@ -12,6 +12,7 @@
 	  opacity: 0.2;
 	  filter: alpha(opacity=20);
 	}
+	
 	.close:hover {
 	  color: #000000;
 	  text-decoration: none;
@@ -38,7 +39,7 @@
 	.alert a:hover {	
 		text-decoration: underline !important;
 	}
-	
+
 	.alert-heading {
 	  color: inherit;
 	}
