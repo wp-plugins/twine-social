@@ -2,8 +2,8 @@
 Contributors: Nathan Elliott, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 2.6
+Tested up to: 4.1
+Stable tag: 2.7
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning wall.
@@ -107,6 +107,10 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 2.7 =
+Minor bug fixes.
+Improved account notice messages
 
 = 2.6 =
 Added multi-lingual support for languages and cultures, including English, French, Italian, German, Swedish, Spanish

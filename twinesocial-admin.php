@@ -1,5 +1,4 @@
 <?php
-require_once(ABSPATH . WPINC .'/pluggable.php' );
 require_once(ABSPATH . WPINC .'/template.php' );
 
 if (!defined('TWINE_PLUGIN_DIRNAME')) {
@@ -43,7 +42,7 @@ function twinesocial_settings_page() {
 
 	// refresh the collections and apps from Twine
 	if ($twinesocial_accountid) {
-		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . $twinesocial_accountid);
+		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api/v1?method=accountinfo&ds=Wordpress&accountId=" . $twinesocial_accountid);
 
 		if (!is_wp_error( $result) ) {
 			$js = json_decode(wp_remote_retrieve_body($result));
@@ -169,12 +168,12 @@ function twinesocial_settings_page() {
 <?php  }
 
 
-if ( isset($_POST['action']) && $_POST['action'] == 'update' && wp_verify_nonce( $_POST['twinesocial_noncename'], plugin_basename( __FILE__ ) ) ) {
+if ( isset($_POST['action']) && $_POST['action'] == 'update' ) {
 
 
 	update_option('twinesocial_accountid', $_POST['accountid'] );
 
-	$result = wp_remote_get(TWINE_PUBLIC_URL . "/api?method=accountinfo&accountId=" . $_POST['accountid']);
+	$result = wp_remote_get(TWINE_PUBLIC_URL . "/api/v1?method=accountinfo&ds=Wordpress&accountId=" . $_POST['accountid']);
 
 	if (!is_wp_error( $result) ) {
 		$js = json_decode(wp_remote_retrieve_body($result));
