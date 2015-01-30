@@ -1,0 +1,315 @@
+@font-face {
+	font-family: 'Web Symbols';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.eot');
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.eot?#iefix') format('embedded-opentype'),
+		url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.woff') format('woff'),
+		url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.ttf') format('truetype'),
+		url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.svg#websymbols') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima-Black';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-black-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Bold';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Bold-Italic';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-boldit-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Extrabold';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Light';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Light-Italic';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts//proxima-nova/proximanova-lightitalic-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Regular-Italic';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-regitalic-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Regular';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Semibold';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Light';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-light-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Proxima-Light-Italic';
+	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-lightit-webfont.woff') format('woff');
+}
+
+.bootstrap-wpadmin.twine .social-icon-row i {
+	font-size:42px;
+	padding:5px;
+}
+
+.btn.facebook {
+	background: #3b5998 !important;
+	color:white !important;
+	text-shadow:none !important;
+}
+
+.btn.twitter {
+	background: #00acee  !important;
+	color:white !important;
+	text-shadow:none !important;
+}
+
+
+
+#signupModal h1 {
+	font-family: 'Proxima-Bold', Helvetica, Sans-serif;
+	color: #fec400;
+	margin-bottom: 0px;	
+	padding-bottom: 0px;		
+}
+
+#signupModal h2 {
+	margin-top: 0px;
+	padding-top: 0px;		
+}
+
+#signupModal button.btn-success {
+	margin-right: 10px;
+}
+
+.bootstrap-wpadmin.twine .page-header {
+	text-align:center;
+}
+
+.bootstrap-wpadmin.twine .page-header h2 {
+font-size: 48px;
+font-family: 'Proxima-Semibold',sans-serif;
+line-height: 1.2;
+}
+
+.bootstrap-wpadmin.twine .page-header h2 small {
+font-family: 'Proxima-Light',sans-serif;
+font-size: 36px;
+}
+
+.bootstrap-wpadmin.twine table .img-thumbnail {height:48px;width:48px;}
+
+.bootstrap-wpadmin.twine #twine-tab-shortcode h4 {padding-top:20px;}
+
+.bootstrap-wpadmin.twine p, .bootstrap-wpadmin.twine li
+{
+font-size: 14px;
+line-height: 1.7;
+word-spacing: -1px;
+font-family: 'Proxima-Regular',sans-serif;
+margin-bottom: 1.25em;
+}
+
+.bootstrap-wpadmin .twine-upgrade h4 {
+	margin-top:0px;
+}
+
+.twine-upgrade .span2 {
+	text-align:right;
+}
+
+.twine-upgrade a.btn {
+	margin-bottom:10px;
+}
+
+.bootstrap-wpadmin .tab-pane {
+	margin:20px;
+}
+
+.bootstrap-wpadmin.twine ul {padding-left:20px;}
+
+.bootstrap-wpadmin.twine li {
+	line-height:1.5;
+	margin-bottom:0px;
+}
+
+.bootstrap-wpadmin.twine .page-header p
+{
+font-size: 16px;
+}
+
+.bootstrap-wpadmin.twine pre {
+	background-color:white;
+	height: inherit !important;
+	text-align:center;
+	padding:25px;
+}
+
+.bootstrap-wpadmin.twine b, .bootstrap-wpadmin.twine strong {
+	font-weight:normal;
+	font-family:"Proxima-Bold";
+}
+
+.callout {
+	margin: 20px 0;
+	padding: 20px;
+	border-left: 3px solid #eee;
+}
+
+.callout-info {
+	background-color: #f4f8fa;
+	border-color: #5bc0de;
+}
+
+.callout-info h4{color:#5bc0de}
+
+.callout-danger {
+	background-color: rgba(255, 0, 0, 0.58);
+	border-color: #FF0700;
+	color:white;
+}
+
+
+
+.callout-warning {
+	background-color: #fcf8f2;
+	border-color: #f0ad4e;
+}
+
+.callout-warning h4{color:#f0ad4e}
+
+
+.callout h4 {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.callout p:last-child {
+	margin-bottom: 0;
+}
+
+.twine ul {list-style:inherit;}
+
+
+/* widget */
+.twine-widget {
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	margin-bottom:15px;
+	border-radius:4px;
+}
+
+.twine-widget-title {
+	border-bottom: 1px solid #eee;
+	padding: 10px;
+	padding-left:15px;
+	font-size:14px;
+	color: rgb(71,71,71);
+	font-family:"Proxima-Light";
+	text-transform:uppercase;
+	background-color:rgb(253, 253, 253);
+	position:relative;
+	border-top-left-radius:0px;
+	border-top-right-radius:0px;
+}
+
+.twine-widget-close {
+	position:absolute;
+	right:15px;
+	top:10px;
+	color: rgb(223, 223, 223);
+}
+
+.twine-widget-content {
+	padding: 20px;
+}
+
+#HelpBug {
+	position: absolute;
+	right: 0px;
+	z-index: 1000;
+	bottom: 50%;	
+	cursor: pointer;
+}
+
+
+/*	--------------------------------------------------
+	Reveal Modals
+	-------------------------------------------------- */
+		
+	.reveal-modal-bg { 
+		position: fixed; 
+		height: 100%;
+		width: 100%;
+		background: #000;
+		background: rgba(0,0,0,.8);
+		z-index: 100;
+		display: none;
+		top: 0;
+		left: 0; 
+		visibility: visible;
+		}
+	
+	.reveal-modal {
+		visibility: hidden;
+		top: 100px; 
+		left: 50%;
+		margin-left: -300px;
+		width: 520px;
+		background: #eee url(modal-gloss.png) no-repeat -200px -80px;
+		position: absolute;
+		z-index: 101;
+		padding: 30px 40px 34px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		}
+		
+	.reveal-modal.small 		{ width: 200px; margin-left: -140px;}
+	.reveal-modal.medium 		{ width: 400px; margin-left: -240px;}
+	.reveal-modal.large 		{ width: 600px; margin-left: -340px;}
+	.reveal-modal.xlarge 		{ width: 800px; margin-left: -440px;}
+	
+	.reveal-modal .close-reveal-modal {
+		font-size: 22px;
+		line-height: .5;
+		cursor: pointer;
+		} 
+	/*
+		
+	NOTES
+	
+	Close button entity is &#215;
+	
+	Example markup
+	
+	<div id="myModal" class="reveal-modal">
+		<h2>Awesome. I have it.</h2>
+		<p class="lead">Your couch.  I it's mine.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	*/
+
