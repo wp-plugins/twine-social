@@ -1,10 +1,10 @@
 jQuery(document).ready(function() {
 
-//		console.log('ready!');
-
 	jQuery('input[name="twinesocial_page_nav"], input[name="twinesocial_page_auto_scroll"], select#twinesocial_collection, select#twinesocial_language').change(function() {
 		GenerateShortCode();
 	});
+
+	jQuery("abbr.timeago").timeago();
 	
 	jQuery("#twinesocial_baseUrl" ).change(function() {
 	

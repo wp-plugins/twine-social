@@ -42,7 +42,7 @@ function twinesocial_settings_page() {
 
 	// refresh the collections and apps from Twine
 	if ($twinesocial_accountid) {
-		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api/v1?method=accountinfo&ds=Wordpress&accountId=" . $twinesocial_accountid);
+		$result = wp_remote_get('http:' . TWINE_PUBLIC_URL . "/api/v1/account?accountId=" . $twinesocial_accountid . "&ds=Wordpress");
 
 		if (!is_wp_error( $result) ) {
 			$js = json_decode(wp_remote_retrieve_body($result));
@@ -63,8 +63,9 @@ function twinesocial_settings_page() {
 	// load up pretty stuff
     wp_enqueue_script('jquery');
     wp_enqueue_script('twinesocial_widget_js2', plugins_url('/js/bootstrap.min.js', __file__ ) );
-    wp_enqueue_script('twinesocial_widget_js3', plugins_url('/js/twine.js', __file__ ) );
-    wp_enqueue_script('twinesocial_widget_js4', plugins_url('/js/bootstrap-legacy.min.js', __file__ ) );    
+    wp_enqueue_script('twinesocial_widget_js3', plugins_url('/js/jquery.timeago.js', __file__ ) );
+    wp_enqueue_script('twinesocial_widget_js4', plugins_url('/js/twine.js', __file__ ) );
+    wp_enqueue_script('twinesocial_widget_js5', plugins_url('/js/bootstrap-legacy.min.js', __file__ ) );    
     wp_enqueue_style('twinesocial_widget_css1', plugins_url('/css/twine.css', __file__ ) );
     wp_enqueue_style('twinesocial_widget_css2', plugins_url('/css/bootstrap-wpadmin-legacy.css', __file__ ) );
     wp_enqueue_style('twinesocial_widget_css3', plugins_url('/css/bootstrap-wpadmin-fixes.css', __file__ ) );
@@ -125,8 +126,8 @@ function twinesocial_settings_page() {
 						<li class="active"><a href="#twine-tab-home" data-toggle="tab">Dashboard</a></li>
 						<li><a href="#twine-tab-shortcode" data-toggle="tab">Short-Codes</a></li>
 						<li><a href="#twine-tab-hubs" data-toggle="tab">My Hubs</a></li>
+						<li><a href="#twine-tab-feeds" data-toggle="tab">Feeds</a></li>
 						<li><a href="#twine-tab-connections" data-toggle="tab">Connections</a></li>
-						<li><a href="#twine-tab-rules" data-toggle="tab">Rules</a></li>
 						<li><a href="#twine-tab-collections" data-toggle="tab">Collections</a></li>
 						<?php if (false && $twinesocial_appdata_json->accountStatus>1) { ?>
 							  <li><a href="#twine-tab-upgrade" data-toggle="tab">Purchase Pro Version</a></li>
@@ -140,12 +141,12 @@ function twinesocial_settings_page() {
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<?php include_once ("lib/tab-overview.php"); ?>
-				<?php include_once ("lib/tab-connections.php"); ?>
 				<?php include_once ("lib/tab-shortcode.php"); ?>
+				<?php include_once ("lib/tab-connections.php"); ?>
+				<?php include_once ("lib/tab-feeds.php"); ?>
 				<?php include_once ("lib/tab-hubs.php"); ?>
 				<?php include_once ("lib/tab-collections.php"); ?>
 				<?php include_once ("lib/tab-users.php"); ?>
-				<?php include_once ("lib/tab-rules.php"); ?>
 				<?php include_once ("lib/tab-settings.php"); ?>
 				<?php include_once ("lib/tab-faq.php"); ?>
 			</div>
@@ -188,8 +189,4 @@ if ( isset($_POST['action']) && $_POST['action'] == 'update' ) {
 			add_settings_error( $twinesocial_admin_page, 'twinesocial_home_created', sprintf('We were not able to retrieve your TwineSocial account setings because the following error occurred: ' .  $result->get_error_message(), get_bloginfo('url')), 'alert alert-danger');
 		}
 	}
-
-
 }
-
-?>

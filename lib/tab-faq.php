@@ -13,10 +13,10 @@
 					<H3>About the TwineSocial Wordpress Plugin</H3>
 					<p class="lead">Showcase your brand's social media, beautifully presented on your Wordpress Blog.</p>
 					<P ><a href="<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a> provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.</p>
-					<P>This plugin makes it <b>super easy</b> to add your social media content (including #hashtags, @accounts and locations) from any social media network to your Wordpress Blog. TwineSocial is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties. Your customers see your brand in action, making Twine the perfect social media hub.</p>
+					<P>This plugin makes it <b>super easy</b> to add your social media content (including #hashtags, @accounts and locations) from any social media network to your Wordpress Blog. TwineSocial is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties. Your customers see your brand in action, making TwineSocial the perfect social media hub.</p>
 					<P>TwineSocial is fully responsive, and supports infinite scroll.</p>
 
-					<img class="img-responsive img-thumbnail" src="<?php echo plugin_dir_url( __FILE__ ) . '../images/twine-wall.jpg'?>">
+					<img class="img-responsive img-thumbnail" src="<?php echo plugin_dir_url( __FILE__ ) . '../assets/screenshot-1.jpeg'?>">
 
 					<HR>
 
@@ -24,17 +24,17 @@
 					<P>IMPORTANT: You will FIRST need to go to <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a>, sign up for a FREE account before you can embed it into your Wordpress site.
 					</div>
 
-					<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum.</p>
+					<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum.</a></p>
 
 
 					<H3>Installation</H3>
 					<P>First, go to <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a> and sign up for a FREE account. Installing the plugin without a <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a> account will not work properly.</p>
 
-					<P>Twine can be displayed on the Wordpress sidebar or embedded in your page as a shortcode.</p>
+					<P>TwineSocial can be displayed on the Wordpress sidebar or embedded in your page as a shortcode.</p>
 
 					<HR>
 
-					<H4>Placing your Twine feed a Wordpress Page</H4>
+					<H4>Placing your TwineSocial feed on a Wordpress Page</H4>
 
 					<OL>
 					<LI>Download the plugin and upload it into your Wordpress Plugins folder OR search "TwineSocial" in the plugin store and install it.</LI>
@@ -49,24 +49,24 @@
 
 					<HR>
 
-					<H4>Placing your Twine feed on the Sidebar/Widget</H4>
+					<H4>Placing your TwineSocial feed on the Sidebar/Widget</H4>
 
 					<OL>
-					<LI>Go to the Appearance -> Widgets, drag the "Twine Social" widget to your "Main Sidebar"</LI>
-					<LI>Choose from your list of available Twine Social applications.</LI>
+					<LI>Go to the Appearance -> Widgets, drag the "TwineSocial" widget to your "Main Sidebar"</LI>
+					<LI>Choose from your list of available TwineSocial hubs.</LI>
 					</OL>
 
 
 					<HR>
 
-					<H4>Using Twine Social shortcodes</H4>
+					<H4>Using TwineSocial shortcodes</H4>
 
 					<P>Shortcodes are the quickest way to embed TwineSocial on your WordPress site. Create a new Post and click on the Text option on the top-right hand side of the post. Paste in the generated code and press SAVE.
 
 					<P>Many additional arguments are supported by the shortcode:</p>
 
 					<DL>
-					<DT>app="MYSITE"</DT><DD>Your Twine Social application name</DD>
+					<DT>app="MYSITE"</DT><DD>Your TwineSocial application name</DD>
 					<DT>width="250px"</DT><DD>Width of your TwineSocial embedded widget</DD>
 					<DT>height="500px"</DT><DD>initial height of the widget. (If you choose Infinite Scroll below, then your widget will automatically grow when the bottom of the widget is scrolled into view.)</DD>
 					<DT>nav="1"</DT><DD>Enable/Disable site navigation.</DD>
@@ -87,15 +87,15 @@
 
 					<H4>What is Twine?</H4>
 
-					<P><A href="http://<?php echo TWINE_PUBLIC_URL?>">Twine Social</a> provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.</p>
+					<P><A href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a> provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.</p>
 
-					<H3>What can I use Twine Social for?</h3>
-					<P>Connect any combination of social media feeds, including hashtags, from any social media network and Twine Social will aggregate your content onto one stunning destination on your website, TV, video wall, or display.</p>
-					<P>Twine Social is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.</p>
+					<H3>What can I use TwineSocial for?</h3>
+					<P>Connect any combination of social media feeds, including hashtags, from any social media network and TwineSocial will aggregate your content onto one stunning destination on your website, TV, video wall, or display.</p>
+					<P>TwineSocial is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.</p>
 
-					<H3>How do I start using Twine Social?</H3>
+					<H3>How do I start using TwineSocial?</H3>
 
-					<P>First sign up for a free account at <a href="http://<?php echo TWINE_PUBLIC_URL?>">Twine Social</a>. This Wordpress plugin then allows you to embed your Twine Social feed into your WordPress site. Go to the Installation tab to easily learn how.</p>
+					<P>First sign up for a free account at <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a>. This Wordpress plugin then allows you to embed your TwineSocial feed into your WordPress site. Go to the Installation tab to easily learn how.</p>
 
 					<H3>Help, I'm having a problem!</H3>
 

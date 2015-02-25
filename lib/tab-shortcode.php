@@ -3,10 +3,12 @@
 		<div class="span12">
 			<div class="twine-widget">
 				<div class="twine-widget-title">
-					Generate a Wordpress ShortCode
+					Wordpress ShortCode
 					<div class="twine-widget-close" data-toggle="collapse">X</div>
 				</div>
 				<div class="twine-widget-content">
+
+					<p>Generate a <a href="http://codex.wordpress.org/Shortcode">Wordpress Shortcode</a>, and paste it anywhere you'd like your social media content to appear.</p>
 
 					<h4>Choose Your Social Hub:</h4>
 
@@ -87,8 +89,8 @@
 						<BR>Show all of your collections as tabbed navigation at the top of your hub.
 					</div>
 
-					<h4>Embed Your Shortcode.</h4>
-					<P>Copy and paste this Wordpress shortcode on any Wordpress Page or Post:</p>
+					<h4>Your Wordpress Shortcode:</h4>
+					<P>Copy and paste this shortcode on any Wordpress Page or Post:</p>
 
 					<pre id="embed-code">[twinesocial app="<?php echo json_decode($twinesocial_appdata)->campaigns[0]->baseUrl?>" language="en"]</pre>
 

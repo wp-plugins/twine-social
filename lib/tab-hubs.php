@@ -8,6 +8,9 @@
 					<div class="twine-widget-close" data-toggle="collapse">X</div>
 				</div>
 				<div class="twine-widget-content">
+				
+					<p>A <b>Hub</b> is a collection of one or more of your social media feeds. You can embed a hub on a page.</p>
+					
 					<table class="table table-striped table-hover">
 					<thead>
 						<TH style="width:90px;">&nbsp;</TH>
