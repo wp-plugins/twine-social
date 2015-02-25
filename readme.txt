@@ -1,12 +1,12 @@
-=== TwineSocial: Show all your social media posts in a easy, beautiful page ===
-Contributors: Noah Weaver, Aaron Fessler
+=== TwineSocial: Show your social media content in a easy and beautiful interface ===
+Contributors: Nathan Elliott, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
 Tested up to: 4.1
 Stable tag: 2.8
 License: GPLv2
 
-Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning page.
+Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning wall.
 
 
 == Description ==
@@ -19,7 +19,7 @@ Your customers see your brand in action, making TwineSocial the perfect social m
 
 = Features =
 
-* A beautiful view of your social media content from all social media networks: Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
+* A beautiful view of your social media content from all major networks: Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
 * Gather your content by @username, #hashtag, location, and more.
 * Setup rules & filters to automatically eliminate unwanted content and retweets.
 * Video player for content with cross-browser and full-screen playback support.
@@ -100,18 +100,17 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 == Screenshots ==
 
 1. Embed a social media feed wall of your social media content on your Wordpress page. TwineSocial supports responsive layouts, integrated video player, and infinite scroll.
-2. Responsive layout and infinite scroll. 
-3. Choose from a library of themes: galleries, live display feeds, video players, and more.
-4. An example of the Photo Grid theme.
-5. Features a built-in video and photo player.
-6. Easy to customize from within WordPress.
-5. Works as a sidebar widget as well.
+2. Responsive layout and infinite scroll. Choose your layout and theme.
+3. An intuitive settings panel helps you configure your Plugin.
+4. Embed your TwineSocial feed in a widget/sidebar
+5. Configure your TwineSocial widget.
 
 
 == Changelog ==
 
 = 2.8 =
-Updated account management links
+Added Feeds tab. You can now monitor the number of posts each data feed has acquired.
+Updated account management links.
 
 = 2.7 =
 Minor bug fixes.
