@@ -24,7 +24,7 @@
 					<P>IMPORTANT: You will FIRST need to go to <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a>, sign up for a FREE account before you can embed it into your Wordpress site.
 					</div>
 
-					<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum</a>, or email us at support{at}twinesocial.com.</p>
+					<P>If you have any questions or feedback, please visit our <a href="http://support.twinesocial.com/">support forum.</p>
 
 
 					<H3>Installation</H3>
@@ -99,38 +99,7 @@
 
 					<H3>Help, I'm having a problem!</H3>
 
-					<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>, or <a href="mailto:support@twinesocial.com">email us</a>.</p>
-
-					<HR>
-
-
-					<Code>
-					= 2.0 =<BR>
-					* Now featuring Collection Navigation.<BR>
-					* Support for infinite scroll in the sidebar Widget<BR>
-					* Improved documentation.<BR>
-					* Tested with Wordpress 3.8.1.
-					<BR>
-					= 1.4 =<BR>
-					* Now with even more beautiful layouts for responsive, mobile, and table displays.<BR>
-					<BR>
-					= 1.3.1 =<BR>
-					* Added new support multiple Twine Social applications. Choose your specific application when setting up the Wordpress Widget.<BR>
-					<BR>
-					= 1.3 =<BR>
-					* Added new support for Collections in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Collections in your <a href="http://<?php echo TWINE_CUSTOMER_URL?>">Twine Social Admin Console</a>.<BR>
-					<BR>
-					= 1.2 =<BR>
-					* Improved support for transparent IFRAMES<BR>
-					<BR>
-					= 1.1 =<BR>
-					* Upgraded support libraries to Bootstrap 3.<BR>
-					<BR>
-					= 1.0 =<BR>
-					* Initial Version<BR>
-					== Upgrade Notice ==<BR>
-					No problems should be encountered when upgrading.<BR>
-					</code>
+					<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>.</p>
 
 
 		</div>

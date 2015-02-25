@@ -29,18 +29,18 @@
 						<TH>&nbsp;</TH>
 					</thead>
 					<tbody>
-					<?php foreach ($twinesocial_appdata_json->apps as $app) { ?>
-					<?php foreach ($app->collections as $collection) { ?>
+					<?php foreach ($twinesocial_appdata_json->campaigns as $campaign) { ?>
+					<?php foreach ($campaign->collections as $collection) { ?>
 						<TR>
-							<TD> <?php echo $app->name?></TD>
+							<TD> <?php echo $campaign->name?></TD>
 							<TD> <?php echo $collection->name?></TD>
-							<TD><a target="_blank" class="btn btn-sm btn-default" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $app->baseUrl?>/collection">Edit Collection</a></TD>
+							<TD><a target="_blank" class="btn btn-sm btn-default" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $campaign->baseUrl?>/collection/index">Edit Collection</a></TD>
 						</TR>
 					<?php } ?>
 					<?php } ?>
 					</tbody>
 					</table>
-					<a target="_blank" id="btn-rules" class="btn btn-primary btn-sm" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $twinesocial_appdata_json->apps[0]->baseUrl?>/rules/index">Add New Collection</a>
+					<a target="_blank" id="btn-rules" class="btn btn-primary btn-sm" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $twinesocial_appdata_json->campaigns[0]->baseUrl?>/rules/index">Add New Collection</a>
 				</div>
 			</div>
 		</div>
