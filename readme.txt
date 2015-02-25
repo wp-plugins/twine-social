@@ -1,12 +1,12 @@
-=== TwineSocial: Show your social media content in a easy and beautiful interface ===
-Contributors: Nathan Elliott, Aaron Fessler
+=== TwineSocial: Show all your social media posts in a easy, beautiful page ===
+Contributors: Noah Weaver, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
 Tested up to: 4.1
 Stable tag: 2.8
 License: GPLv2
 
-Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning wall.
+Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning page.
 
 
 == Description ==
@@ -19,7 +19,7 @@ Your customers see your brand in action, making TwineSocial the perfect social m
 
 = Features =
 
-* A beautiful view of your social media content from all major networks: Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
+* A beautiful view of your social media content from all social media networks: Facebook, Twitter, Instagram, YouTube, Vine, Flickr, Pinterest, Tumblr, Linkedin, and RSS.
 * Gather your content by @username, #hashtag, location, and more.
 * Setup rules & filters to automatically eliminate unwanted content and retweets.
 * Video player for content with cross-browser and full-screen playback support.
