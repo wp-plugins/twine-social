@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
 
-		console.log('ready!');
+//		console.log('ready!');
 
 	jQuery('input[name="twinesocial_page_nav"], input[name="twinesocial_page_auto_scroll"], select#twinesocial_collection, select#twinesocial_language').change(function() {
 		GenerateShortCode();
@@ -10,12 +10,12 @@ jQuery(document).ready(function() {
 	
 		baseUrl = jQuery('#twinesocial_baseUrl').val();
 		
-		for (var i=0;i<TwineSocialAppData.apps.length;i++) {
-			if (TwineSocialAppData.apps[i].baseUrl==baseUrl) {
+		for (var i=0;i<TwineSocialAppData.campaigns.length;i++) {
+			if (TwineSocialAppData.campaigns[i].baseUrl==baseUrl) {
 				jQuery('select#twinesocial_collection').find('option').remove();
 				jQuery('select#twinesocial_collection').append('<option value="0">All</option>');
-				for (var j=0;j<TwineSocialAppData.apps[i].collections.length;j++) {
-					col = TwineSocialAppData.apps[i].collections[j];
+				for (var j=0;j<TwineSocialAppData.campaigns[i].collections.length;j++) {
+					col = TwineSocialAppData.campaigns[i].collections[j];
 					jQuery('select#twinesocial_collection').append('<option value="' + col.id + '">Display posts from my "' + col.name + '" Collection</option>');
 				}
 
@@ -47,8 +47,8 @@ function GenerateShortCode() {
 
 		jQuery('.twine pre').text('[' + shortcode + ']');
 
-		jQuery('#btn-collections').attr('href','http://customer.twinesocial.com/app' + baseUrl + '/collection/index');
-		jQuery('#btn-rules').attr('href','http://customer.twinesocial.com/app' + baseUrl + '/rules/index');
+		jQuery('#btn-collections').attr('href','https://customer.twinesocial.com/app' + baseUrl + '/collection/index');
+		jQuery('#btn-rules').attr('href','https://customer.twinesocial.com/app' + baseUrl + '/rules/index');
 	}
 }
 

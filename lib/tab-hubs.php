@@ -17,22 +17,22 @@
 						<TH>&nbsp;</TH>
 					</thead>
 					<tbody>
-					<?php foreach ($twinesocial_appdata_json->apps as $app) { ?>
-						<TR class="<?php echo $app->heldFeeds>0 ? "danger" : ""?>">
+					<?php foreach ($twinesocial_appdata_json->campaigns as $campaign) { ?>
+						<TR class="<?php echo $campaign->heldFeeds>0 ? "danger" : ""?>">
 							<TD> 
-								<img class="img-thumbnail" src="<?php echo $app->thumbnail?>" style="margin-right:10px;">
+								<img class="img-thumbnail" src="<?php echo $campaign->thumbnail?>" style="margin-right:10px;">
 							</TD>
 							<TD>
-								<?php echo $app->name?>
+								<?php echo $campaign->name?>
 							</TD>
-							<TD> <?php echo $app->status?></TD>
+							<TD> <?php echo $campaign->status?></TD>
 							<TD>
-								<?php if ($app->heldFeeds>0) { ?>
-									<i class="fa fa-exclamation"></i> One more more feeds are no longer collecting posts. <a target="_blank" href="http://<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $app->baseUrl?>/show">Fix it now.</a> 
+								<?php if ($campaign->heldFeeds>0) { ?>
+									<i class="fa fa-exclamation"></i> One more more feeds are no longer collecting posts. <a target="_blank" href="http://<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $campaign->baseUrl?>/show">Fix it now.</a> 
 								<?php } ?>
 								&nbsp;
 							</TD>
-							<TD><a target="_blank" class="btn btn-sm btn-primary" href="http://<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $app->baseUrl?>/show">Configure Hub</a></TD>
+							<TD><a target="_blank" class="btn btn-sm btn-primary" href="http://<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $campaign->baseUrl?>/index">Configure Hub</a></TD>
 						</TR>
 					<?php } ?>
 					</tbody>

@@ -3,7 +3,7 @@
  * Plugin Name: Twine Social Widget
  * Plugin URI: http://www.twinesocial.com
  * Description: Display your social media content with the Twine Social Wordpress plugin - including hashtags and user content - in a beautiful and richly interactive view.
- * Version: 2.7
+ * Version: 2.8
  * Author: Nathan Elliott
  * License: GPLv2 or later
  */
@@ -404,5 +404,3 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'twine_add_act
         $links[] = '<a href="http://www.twinesocial.com/" target="_blank">Visit TwineSocial Website<a>';
         return $links;
     }
-
-?>
