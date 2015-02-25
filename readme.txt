@@ -3,7 +3,7 @@ Contributors: Nathan Elliott, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 2.7
+Stable tag: 2.8
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning wall.
@@ -48,26 +48,26 @@ TwineSocial can be displayed on the Wordpress sidebar or embedded in your page a
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Click on Settings -> TwineSocial Settings.
 4. You'll need to add your TwineSocial Account ID. You can find it by logging in to [TwineSocial Admin](http://customer.twinesocial.com), using the account you previously created. Click on settings in the top right hand corner and your Account ID will be displayed. It's a short code, like 13-ICZ5I4.
-5. You may have more than one TwineSocial application - one for each brand you manage. Choose one.
-6. You can publish your TwineSocial application to your Wordpress Home Page, or to create a new Wordpress Page.
+5. You may have more than one TwineSocial hub - one for each brand you manage. Choose one.
+6. Paste the shortcode on your Page or Blog post.
 
 That's it!
 
 = Instructions for placing your TwineSocial feed in a Wordpress template sidebar =
 
 1. Go to the Appearance -> Widgets, drag the "TwineSocial" widget to your "Main Sidebar"
-2. Choose from your list of available TwineSocial applications.
+2. Choose from your list of available TwineSocial social hubs.
 3. Setup height. (Leave height blank for 100%).
 
-= Instructions for placing your TwineSocial feed directly in a post or page using shortcode =
+= Instructions for placing your TwineSocial hub directly in a post or page using shortcode =
 
 1. Create a new Post and click on the HTML or Text option on the top-right hand side of the post. 
-2. Use the shortcode twine: Example [twinesocial app='SITE'] (Note: Replace SITE with your application name.)
+2. Use the shortcode twine: Example [twinesocial app='SITE'] (Note: Replace SITE with your social hub name.)
 3. Before you publish, click Visibility- Public.
 
 Arguments supported by the shortcode:
 
-* 'app' Your TwineSocial application id
+* 'app' Your TwineSocial social hub name
 * 'width' width of the iframe
 * 'height' height of the iframe
 * ‘topic’ the specific topic to filter, like “Videos” or “Press Releases”
@@ -107,6 +107,9 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 
 == Changelog ==
+
+= 2.8 =
+Updated account management links
 
 = 2.7 =
 Minor bug fixes.
@@ -168,7 +171,7 @@ Improved layout of YouTube and Vimeo elements
 * Now with even more beautiful layouts for responsive, mobile, and table displays.
 
 = 1.3.1 =
-* Added new support multiple TwineSocial applications. Choose your specific application when setting up the Wordpress Widget.
+* Added new support multiple TwineSocial social hubs. Choose your specific social hub when setting up the Wordpress Widget.
 
 = 1.3 =
 * Added new support for Topics in short codes and Widgets. Now, group and display social your content, like "Videos" or "Press Releases" in relevant sections of your Wordpress blog. Super awesome! Setup your Topics in your [TwineSocial Admin Console](http://customer.twinesocial.com/appTopic/edit).
