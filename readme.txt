@@ -1,4 +1,4 @@
-=== TwineSocial: Show your social media content in a easy and beautiful interface ===
+=== Show your social media posts: easy & beautiful! ===
 Contributors: Nathan Elliott, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
