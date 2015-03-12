@@ -65,7 +65,7 @@ function twinesocial_settings_page() {
     wp_enqueue_script('twinesocial_widget_js2', plugins_url('/js/bootstrap.min.js', __file__ ) );
     wp_enqueue_script('twinesocial_widget_js3', plugins_url('/js/jquery.timeago.js', __file__ ) );
     wp_enqueue_script('twinesocial_widget_js4', plugins_url('/js/twine.js', __file__ ) );
-    wp_enqueue_script('twinesocial_widget_js5', plugins_url('/js/bootstrap-legacy.min.js', __file__ ) );    
+    //wp_enqueue_script('twinesocial_widget_js5', plugins_url('/js/bootstrap-legacy.min.js', __file__ ) );    
     wp_enqueue_style('twinesocial_widget_css1', plugins_url('/css/twine.css', __file__ ) );
     wp_enqueue_style('twinesocial_widget_css2', plugins_url('/css/bootstrap-wpadmin-legacy.css', __file__ ) );
     wp_enqueue_style('twinesocial_widget_css3', plugins_url('/css/bootstrap-wpadmin-fixes.css', __file__ ) );
@@ -75,89 +75,90 @@ function twinesocial_settings_page() {
 	?>
 
 	<div class="bootstrap-wpadmin twine">
-	<div class="container-fluid">
-	<form role="form" method="post" action="options.php">
-
-	<?php 
-	settings_fields( 'twinesocial-settings-group' );
-	wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
-
-	?>
-
+		<div class="container-fluid">
+		<form role="form" method="post" action="options.php">
 
 		<?php 
-			include_once ("lib/upgrade-banner.php"); 	
+		settings_fields( 'twinesocial-settings-group' );
+		wp_nonce_field( plugin_basename( __FILE__ ), 'twinesocial_noncename' );
+
 		?>
 
-		<?php if (!isset($_POST)) {
-			include_once ("lib/create-account-modal.php");			
-		} ?>
+
+			<?php 
+				include_once ("lib/upgrade-banner.php"); 	
+			?>
+
+			<?php if (!isset($_POST)) {
+				include_once ("lib/create-account-modal.php");			
+			} ?>
 		
 					
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="page-header">
-					<img src="http://static.twinesocial.com/website/aggregate-and-moderate-head.png" style="max-width:60%;padding:20px;">
-					<h2>Display Your Social Media<br>
-						<small>Beautiful Social Media Hubs for Wordpress</small>
-					</h2>					
-					<P class="social-icon-row">
-						<i class="fa fa-facebook-square"></i>
-						<i class="fa fa-twitter-square"></i>
-						<i class="fa fa-instagram"></i>
-						<i class="fa fa-youtube-square"></i>
-						<i class="fa fa-linkedin-square"></i>
-						<i class="fa fa-pinterest-square"></i>
-						<i class="fa fa-vimeo-square"></i>
-						<i class="fa fa-tumblr-square"></i>
-						<i class="fa fa-google-plus-square"></i>
-					</p>
-					<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social.  Include your entire brand story—from all your networks—on your Wordpress Blog. 				
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="page-header">
+						<img src="http://static.twinesocial.com/website/aggregate-and-moderate-head.png" style="max-width:60%;padding:20px;">
+						<h2>Display Your Social Media<br>
+							<small>Beautiful Social Media Hubs for Wordpress</small>
+						</h2>					
+						<P class="social-icon-row">
+							<i class="fa fa-facebook-square"></i>
+							<i class="fa fa-twitter-square"></i>
+							<i class="fa fa-instagram"></i>
+							<i class="fa fa-youtube-square"></i>
+							<i class="fa fa-linkedin-square"></i>
+							<i class="fa fa-pinterest-square"></i>
+							<i class="fa fa-vimeo-square"></i>
+							<i class="fa fa-tumblr-square"></i>
+							<i class="fa fa-google-plus-square"></i>
+						</p>
+						<P>Get a stunning social media hub for your Wordpress blog, instantly making it dynamic and social.  Include your entire brand story—from all your networks—on your Wordpress Blog. 				
+					</div>				
 				</div>				
-			</div>				
-		</div>
+			</div>
 		
 
 
-		<?php if ($twinesocial_appdata) { ?>
-			<div class="row-fluid">
-				<div class="span12">
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#twine-tab-home" data-toggle="tab">Dashboard</a></li>
-						<li><a href="#twine-tab-shortcode" data-toggle="tab">Short-Codes</a></li>
-						<li><a href="#twine-tab-hubs" data-toggle="tab">My Hubs</a></li>
-						<li><a href="#twine-tab-feeds" data-toggle="tab">Feeds</a></li>
-						<li><a href="#twine-tab-connections" data-toggle="tab">Connections</a></li>
-						<li><a href="#twine-tab-collections" data-toggle="tab">Collections</a></li>
-						<?php if (false && $twinesocial_appdata_json->accountStatus>1) { ?>
-							  <li><a href="#twine-tab-upgrade" data-toggle="tab">Purchase Pro Version</a></li>
-						<?php } ?>
-						<li><a href="#twine-tab-settings" data-toggle="tab">My Account</a></li>
-						<li><a href="#twine-tab-faq" data-toggle="tab">Help & FAQ</a></li>
-					</ul>
+			<?php if ($twinesocial_appdata) { ?>
+				<div class="row-fluid">
+					<div class="span12">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#twine-tab-home" data-toggle="tab">Dashboard</a></li>
+							<li><a href="#twine-tab-shortcode" data-toggle="tab">Short-Codes</a></li>
+							<li><a href="#twine-tab-hubs" data-toggle="tab">My Hubs</a></li>
+							<li><a href="#twine-tab-feeds" data-toggle="tab">Feeds</a></li>
+							<li><a href="#twine-tab-connections" data-toggle="tab">Connections</a></li>
+							<li><a href="#twine-tab-collections" data-toggle="tab">Collections</a></li>
+							<?php if (false && $twinesocial_appdata_json->accountStatus>1) { ?>
+								  <li><a href="#twine-tab-upgrade" data-toggle="tab">Purchase Pro Version</a></li>
+							<?php } ?>
+							<li><a href="#twine-tab-settings" data-toggle="tab">My Account</a></li>
+							<li><a href="#twine-tab-faq" data-toggle="tab">Help & FAQ</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
 
-			<!-- Tab panes -->
-			<div class="tab-content">
-				<?php include_once ("lib/tab-overview.php"); ?>
-				<?php include_once ("lib/tab-shortcode.php"); ?>
-				<?php include_once ("lib/tab-connections.php"); ?>
-				<?php include_once ("lib/tab-feeds.php"); ?>
-				<?php include_once ("lib/tab-hubs.php"); ?>
-				<?php include_once ("lib/tab-collections.php"); ?>
-				<?php include_once ("lib/tab-users.php"); ?>
-				<?php include_once ("lib/tab-settings.php"); ?>
-				<?php include_once ("lib/tab-faq.php"); ?>
-			</div>
-		<?php } else { ?>
-				<?php include_once ("lib/start.php"); ?>
-		<?php } ?>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<?php include_once ("lib/tab-overview.php"); ?>
+					<?php include_once ("lib/tab-shortcode.php"); ?>
+					<?php include_once ("lib/tab-connections.php"); ?>
+					<?php include_once ("lib/tab-feeds.php"); ?>
+					<?php include_once ("lib/tab-hubs.php"); ?>
+					<?php include_once ("lib/tab-collections.php"); ?>
+					<?php include_once ("lib/tab-users.php"); ?>
+					<?php include_once ("lib/tab-settings.php"); ?>
+					<?php include_once ("lib/tab-faq.php"); ?>
+				</div>
+			<?php } else { ?>
+					<?php include_once ("lib/start.php"); ?>
+			<?php } ?>
 	
 
-	</form>
+		</form>
+		</div>
 	</div>
-	</div>
+
 
 	<?php if ($twinesocial_appdata) { ?>
 	<SCRIPT type="text/javascript">

@@ -1,73 +1,80 @@
 @font-face {
 	font-family: 'Web Symbols';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.eot');
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.eot?#iefix') format('embedded-opentype'),
-		url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.woff') format('woff'),
-		url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.ttf') format('truetype'),
-		url('//s3.amazonaws.com/static.twinesocial.com/fonts/websymbolsligaregular.svg#websymbols') format('svg');
+	src: url('//static.twinesocial.com/fonts/websymbolsligaregular.eot');
+	src: url('//static.twinesocial.com/fonts/websymbolsligaregular.eot?#iefix') format('embedded-opentype'),
+		url('//static.twinesocial.com/fonts/websymbolsligaregular.woff') format('woff'),
+		url('//static.twinesocial.com/fonts/websymbolsligaregular.ttf') format('truetype'),
+		url('//static.twinesocial.com/fonts/websymbolsligaregular.svg#websymbols') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'Proxima-Black';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-black-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-black-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Bold';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-bold-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-bold-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Bold-Italic';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-boldit-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-boldit-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Extrabold';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Light';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-extrabold-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Light-Italic';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts//proxima-nova/proximanova-lightitalic-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts//proxima-nova/proximanova-lightitalic-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Regular-Italic';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-regitalic-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-regitalic-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Regular';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-regular-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-regular-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Semibold';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-semibold-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-semibold-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Light';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-light-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-light-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Proxima-Light-Italic';
-	src: url('//s3.amazonaws.com/static.twinesocial.com/fonts/proxima-nova/proximanova-lightit-webfont.woff') format('woff');
+	src: url('//static.twinesocial.com/fonts/proxima-nova/proximanova-lightit-webfont.woff') format('woff');
 }
 
 .bootstrap-wpadmin.twine .social-icon-row i {
 	font-size:42px;
 	padding:5px;
 }
+
+.bootstrap-wpadmin.twine .form-group label {text-align:right;}
+.bootstrap-wpadmin.twine input[type="checkbox"] {
+	margin-top: 0px;
+	margin-right: 5px;
+}
+
 
 .btn.facebook {
 	background: #3b5998 !important;
@@ -116,7 +123,7 @@ font-size: 36px;
 
 .bootstrap-wpadmin.twine table .img-thumbnail {height:48px;width:48px;}
 
-.bootstrap-wpadmin.twine #twine-tab-shortcode h4 {padding-top:20px;}
+.bootstrap-wpadmin.twine #twine-tab-shortcode h4 {padding-top:20px;padding-bottom:10px;}
 
 .bootstrap-wpadmin.twine p, .bootstrap-wpadmin.twine li
 {
@@ -240,6 +247,15 @@ font-size: 16px;
 
 .twine-widget-content {
 	padding: 20px;
+}
+
+.twine-themes div.active img {
+	box-shadow: 0px 0px 5px 1px rgba(0, 59, 213, 0.79), 0px 1px 0px 0px #001FBD inset;
+}
+
+.twine-themes p {
+	padding-top:5px;
+	text-align:center;
 }
 
 #HelpBug {

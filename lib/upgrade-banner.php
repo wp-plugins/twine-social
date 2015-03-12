@@ -17,7 +17,7 @@
 	<div class="row-fluid">
 		<div class="span10">
 			<H4>Upgrade Now to Remove TwineSocial Ads</H4>
-			<p>Your free 30-day TwineSocial trial is over, and your account has been automatically downgraded to the Free Plan. Continue to use the ad-supported version of TwineSocial, or upgrade now to remove ads and unlock more features.</p>
+			<p>Your free 30-day TwineSocial trial is over, and your account has been automatically downgraded to the Free Plan. Continue to use the ad-supported version of TwineSocial, or upgrade now to remove ads and unlock more features. No contracts, cancel anytime.</p>
 		</div>
 		<div class="span2">
 			<a href="http://<?php echo TWINE_CUSTOMER_URL?>/account/choosePlan" class="btn btn-sm btn-primary">Upgrade Now</a><BR>

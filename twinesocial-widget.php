@@ -43,10 +43,13 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 	 */
 	private $widget_title = "TwineSocial Hub";
 	private $app = "";
-	private $height = "";
+	private $height = "auto";
 	private $width = "";
 	private $language="en";
-	private $scroll = "";
+	private $theme="";
+	private $color="";
+	private $scrolloptions="fixed";
+	private $pagesize="20";
 	private $collection = "";
 	private $nav = "0";
 	private $noAnimate = false;
@@ -85,8 +88,12 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 		$this->height     = $instance['height'];
 		$this->app        = $instance['app'];
 		$this->language   = $instance['language'];
+		$this->theme      = $instance['theme'];
+		$this->color      = $instance['color'];
+		$this->scrolloptions   = $instance['scrolloptions'];
+		$this->nav        = $instance['nav'];
+		$this->pagesize   = $instance['pagesize'];
 		$this->collection = isset($instance['collection']) ? $instance['collection'] : null;
-		$this->scroll     = $instance['scroll'];
 		$this->noAnimate  = true ;
 
 		/* Before widget (defined by themes). */
@@ -100,8 +107,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                             , 'collection' => $this->collection
                             , 'height' => $this->height
                             , 'noAnimate' => $this->noAnimate
-                            , 'scroll' => $this->scroll
                             , 'language' => $this->language
+                            , 'theme' => $this->theme
+                            , 'color' => $this->color
+                            , 'scrolloptions' => $this->scrolloptions
+                            , 'pagesize' => $this->pagesize
                             , 'nav' => $this->nav
                             ) );
 
@@ -125,8 +135,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                                     , 'height' => ''
                                     , 'width' => ''
                                     , 'collection' => ''
-                                    , 'scroll' => ''
                                     , 'language' => ''
+                                    , 'theme' => ''
+                                    , 'color' => ''
+                                    , 'scrolloptions' => ''
+                                    , 'pagesize' => ''
                                     , 'noAnimate'=>false
                                     , 'nav' => ''
                                     ) );
@@ -137,23 +150,43 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
             'app'      => rawurlencode( $r['app'] ),
         ), TWINE_APPS_URL . '/embed' );
 
-
         if (!empty( $r['height'])) {
             $url = add_query_arg( 'height', $r['height'], $url );
-        }
-
-        if (strlen($r['scroll'])==0) {
-            $url = add_query_arg( 'scroll', "no", $url );
+        } else {
+            $url = add_query_arg( 'height', "auto", $url );
         }
 
         if ( !empty( $r['collection'] ) )
             $url = add_query_arg( 'collection', $r['collection'], $url );
 
-       if ( !empty( $r['language'] ) )
+       if (!empty($r['language']))
             $url = add_query_arg( 'lang', $r['language'], $url );
 
-        if ($r['nav']=="1")
-            $url = add_query_arg( 'showNav', "1", $url );
+       if (!empty($r['theme']))
+            $url = add_query_arg( 'theme-layout', $r['theme'], $url );
+
+       if (!empty($r['color']))
+            $url = add_query_arg( 'theme-color', $r['color'], $url );
+
+
+       if (empty($r['scrolloptions'])) {
+           $url = add_query_arg( 'scroll', "no", $url );
+       } else if ($r['scrolloptions']=="showbutton") {
+            $url = add_query_arg( 'showLoadMore', "yes", $url );
+            $url = add_query_arg( 'autoload', "no", $url );
+			$url = add_query_arg( 'scroll', "no", $url );
+       } else if ($r['scrolloptions']=="fixed") {
+			$url = add_query_arg( 'scroll', "no", $url );
+            $url = add_query_arg( 'autoload', "no", $url );
+       }
+
+
+       if ( !empty( $r['pagesize'] ) )
+            $url = add_query_arg( 'pagesize', $r['pagesize'], $url );
+
+        if ($r['nav']==0) {
+            $url = add_query_arg('showNav', "no", $url);
+        }
 
 		if ($r['noAnimate']) {
 	        $url = add_query_arg( 'noAnimate', "1", $url );
@@ -190,9 +223,12 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 		$instance['height'] = strip_tags( $new_instance['height'] );
 		$instance['collection'] = strip_tags( $new_instance['collection'] );
 		$instance['nav'] = strip_tags( $new_instance['nav'] );
-		$instance['scroll'] = strip_tags( $new_instance['scroll'] );
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['language'] = strip_tags( $new_instance['language'] );
+		$instance['theme'] = strip_tags( $new_instance['theme'] );
+		$instance['color'] = strip_tags( $new_instance['color'] );
+		$instance['scrolloptions'] = strip_tags( $new_instance['scrolloptions'] );
+		$instance['pagesize'] = strip_tags( $new_instance['pagesize'] );
 
 		return $instance;
 	}
@@ -223,9 +259,12 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
                 'app' => $this->app,
                 'height' => $this->height,
                 'collection' => $this->collection,
-                'scroll' => $this->scroll,
                 'nav' => $this->nav,
                 'language' => $this->language,
+                'theme' => $this->theme,
+                'color' => $this->color,
+                'scrolloptions' => $this->scrolloptions,
+                'pagesize' => $this->pagesize,
                 'width' => $this->width,
             );
 
@@ -237,7 +276,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
              <H4>Configure your Twine Social Sidebar Widget</H4>
 
             <p>
-                <label for="<?php echo $this->get_field_id( 'app' ); ?>"><?php _e('TwineSocial Hub:', 'framework') ?>: </label><BR>
+                <label for="<?php echo $this->get_field_id( 'app' ); ?>"><?php _e('Social Hub', 'framework') ?>: </label><BR>
 
 
 				<?php 
@@ -264,7 +303,7 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 				<?php 
 				if ($twinesocial_appdata) {
 					$js = json_decode($twinesocial_appdata); ?>
-					<SELECT id="twinesocial_collection" name="<?php echo $this->get_field_name( 'collection' ); ?>">
+					<SELECT id="twinesocial_collection" name="<?php echo $this->get_field_name('collection'); ?>">
 						<OPTION value="0">Show All Items</option>
 						<?php foreach ($js->apps as $app) {
 							if ($app->baseUrl == $js->apps[0]->baseUrl) {
@@ -280,6 +319,32 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
 						
             </p>
 
+
+
+            <p>
+            
+                <label for="<?php echo $this->get_field_id( 'pagesize' ); ?>"><?php _e('Limit', 'framework') ?>: </label><BR>
+				<SELECT id="twinesocial_pagesize" name="<?php echo $this->get_field_name('pagesize'); ?>">
+					<OPTION <?php echo $instance['pagesize']=="1" ? 'selected="selected"' : ''?> value="1">Show 1 post</option>
+					<OPTION <?php echo $instance['pagesize']=="2" ? 'selected="selected"' : ''?> value="2">Show 2 posts</option>
+					<OPTION <?php echo $instance['pagesize']=="3" || $instance['pagesize']=='' || $instance['pagesize']=="20" ? 'selected="selected"' : ''?> value="3">Show 3 posts</option>
+					<OPTION <?php echo $instance['pagesize']=="5" ? 'selected="selected"' : ''?> value="5">Show 5 posts</option>
+					<OPTION <?php echo $instance['pagesize']=="10" ? 'selected="selected"' : ''?> value="10">Show 10 posts</option>
+				</SELECT>
+						
+            </p>
+            
+			<p>
+               <label for="<?php echo $this->get_field_id( 'language' ); ?>"><?php _e('Language', 'framework') ?>: </label><BR>
+				<SELECT id="twinesocial_language" name="<?php echo $this->get_field_name('language'); ?>">
+				<?php foreach ($js->languages as $language) {
+						$sel = $instance['language']==$language->culture ? 'selected="selected"' : '';
+						echo '<OPTION ' . $sel . ' value="' . $language->culture . '">' . $language->name . '</option>';
+				}
+			echo '</SELECT>'; ?>
+			</p>
+
+
             <!-- Widget Title: Text Input -->
             <p>
                 <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Widget Title', 'framework') ?>: </label>
@@ -294,27 +359,21 @@ add_action( 'widgets_init', create_function( '', 'register_widget("twinesocial_w
             <p>
                 <label for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e('Height', 'framework') ?>: </label>
                 <input type="text" id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" value="<?php echo $instance['height']; ?>" size="5" />px
-                <br> <small>Initial height of the sidebar widget.</small>
+                <br> <small>Initial height of the sidebar widget. Set to "auto" to auto-grow and shrink.</small>
             </p>
 
-			<p>Language:
+			<p><small>When visitors reach the last post:</small>
+			<SELECT id="twinesocial_scrolloptions" name="<?php echo $this->get_field_name('scrolloptions'); ?>">
+				<OPTION <?php echo $instance['scrolloptions']=='fixed'  || $instance['scrolloptions']=='' ? 'selected="selected"' : ''?> value="fixed">Do nothing (Recommended)</option>
+				<OPTION <?php echo $instance['scrolloptions']=='showbutton' ? 'selected="selected"' : ''?> value="showbutton">Show a "Load More Posts" button</option>
+				<OPTION <?php echo $instance['scrolloptions']=='autoload' ? 'selected="selected"' : ''?> value="autoload">Auto-load more posts (Not recommended)</option>
+			</SELECT>
+			</p>
 
-			<SELECT id="twinesocial_language" name="<?php echo $this->get_field_name('language'); ?>">
-				<?php foreach ($js->languages as $language) {
-						$sel = $instance['language']==$language->culture ? 'selected="selected"' : '';
-						echo '<OPTION ' . $sel . ' value="' . $language->culture . '">' . $language->name . '</option>';
-				}
-			echo '</SELECT>'; ?>
-		</p>
-
-
-            <p>
-                <input type="checkbox" value="yes" id="<?php echo $this->get_field_id( 'scroll' ); ?>" name="<?php echo $this->get_field_name( 'scroll' ); ?>"  <?php echo $instance['scroll'] ? "checked='checked'" : "" ?> />
-                <label for="<?php echo $this->get_field_id( 'scroll' ); ?>">Infinite Scrolling</label>
-
-                <br> <small>Check if you want the widget to automatically grow when the bottom of the page is reached.</small>
-            </p>
-
+			<p><input type="checkbox" id="<?php echo $this->get_field_id('nav'); ?>" name="<?php echo $this->get_field_name('nav'); ?>" value="1" <?php echo $instance['nav']=="1" ? "checked" : ""?> />&nbsp;Show navigation tabs</p>
+		
+					
+					
         </div>
 
 	<?php
@@ -375,9 +434,21 @@ function twinesocial_shortcode( $atts ) {
         $language = urlencode($atts['language']);
     }
 
-    $scroll = '';
-    if (empty($atts['scroll'])) {
-        $scroll = "no";
+    if (isset($atts['theme']) && ! empty( $atts['theme'] ) ) {
+        $theme = urlencode($atts['theme']);
+    }
+
+    if (isset($atts['color']) && ! empty( $atts['color'] ) ) {
+        $color = urlencode($atts['color']);
+    }
+
+
+    if (isset($atts['scrolloptions']) && ! empty( $atts['scrolloptions'] ) ) {
+        $scrolloptions = urlencode($atts['scrolloptions']);
+    }
+
+    if (isset($atts['pagesize']) && ! empty( $atts['pagesize'] ) ) {
+        $pagesize = urlencode($atts['pagesize']);
     }
 
     $nav = '0';
@@ -388,9 +459,12 @@ function twinesocial_shortcode( $atts ) {
     return $tw_widget->tw_render( array(
         'app'     => $app,
         'height'        => $height,
-        'scroll'        => $scroll,
         'collection'        => $collection,
         'language'        => $language,
+        'theme'        => $theme,
+        'color'        => $color,
+        'scrolloptions'        => $scrolloptions,
+        'pagesize'        => $pagesize,
         'width'        => $width,
         'nav'        => $nav,
         'noAnimate'        => false

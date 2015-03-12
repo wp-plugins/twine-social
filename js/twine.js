@@ -1,7 +1,21 @@
 jQuery(document).ready(function() {
 
-	jQuery('input[name="twinesocial_page_nav"], input[name="twinesocial_page_auto_scroll"], select#twinesocial_collection, select#twinesocial_language').change(function() {
+	jQuery('input[name="twinesocial_page_nav"], input[name="twinesocial_page_auto_scroll"], select#twinesocial_collection, select#twinesocial_language, select#twinesocial_pagesize, select#twinesocial_scrolloptions, select#twinesocial_color').change(function() {
 		GenerateShortCode();
+	});
+
+	jQuery('.twine-themes img').click(function() {
+
+		if (jQuery(this).closest('div').hasClass('locked')) {
+			jQuery('.upgrade-message').removeClass('hide');
+//			jQuery('.twine-themes .active').removeClass('active');
+//			jQuery(this).closest('div').addClass('active');
+		} else {
+			jQuery('.upgrade-message').addClass('hide');
+			jQuery('.twine-themes .active').removeClass('active');
+			jQuery(this).closest('div').addClass('active');
+			GenerateShortCode();
+		}
 	});
 
 	jQuery("abbr.timeago").timeago();
@@ -16,7 +30,9 @@ jQuery(document).ready(function() {
 				jQuery('select#twinesocial_collection').append('<option value="0">All</option>');
 				for (var j=0;j<TwineSocialAppData.campaigns[i].collections.length;j++) {
 					col = TwineSocialAppData.campaigns[i].collections[j];
-					jQuery('select#twinesocial_collection').append('<option value="' + col.id + '">Display posts from my "' + col.name + '" Collection</option>');
+					if (col.name!="All") {
+						jQuery('select#twinesocial_collection').append('<option value="' + col.id + '">Display posts from my "' + col.name + '" Collection</option>');
+					}
 				}
 
 				GenerateShortCode();
@@ -31,9 +47,6 @@ function GenerateShortCode() {
 	if (jQuery('.twine pre').length>0) {
 		baseUrl = jQuery('#twinesocial_baseUrl').val();
 		shortcode = 'twinesocial app="' + baseUrl + '"';
-		if (!jQuery('input[name="twinesocial_page_auto_scroll"]').attr('checked')) {
-			shortcode += ' scroll="no"';
-		}
 
 		if (jQuery('input[name="twinesocial_page_nav"]').attr('checked')) {
 			shortcode += ' nav="yes"';
@@ -43,7 +56,25 @@ function GenerateShortCode() {
 			shortcode += ' collection="' + jQuery('select#twinesocial_collection').val() + '"';
 		}
 
-		shortcode += ' language="' + jQuery('select#twinesocial_language').val() + '"';
+		if (jQuery('select#twinesocial_language').val()!="en") {
+			shortcode += ' language="' + jQuery('select#twinesocial_language').val() + '"';
+		}
+
+		if (jQuery('.twine-themes .active').attr('data-theme')!="classic"  && jQuery('.twine-themes .active').val()!=undefined) {
+			shortcode += ' theme="' + jQuery('.twine-themes .active').attr('data-theme') + '"';
+		}
+
+		if (jQuery('select#twinesocial_color').val()!="white" && jQuery('select#twinesocial_color').val()!=undefined) {
+			shortcode += ' color="' + jQuery('select#twinesocial_color').val() + '"';
+		}
+
+
+		if (jQuery('select#twinesocial_pagesize').val()!=20) {
+			shortcode += ' pagesize="' + jQuery('select#twinesocial_pagesize').val() + '"';
+		}
+
+		shortcode += ' scrolloptions="' + jQuery('select#twinesocial_scrolloptions').val() + '"';
+
 
 		jQuery('.twine pre').text('[' + shortcode + ']');
 

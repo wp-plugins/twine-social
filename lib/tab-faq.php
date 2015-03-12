@@ -54,55 +54,28 @@
 					<OL>
 					<LI>Go to the Appearance -> Widgets, drag the "TwineSocial" widget to your "Main Sidebar"</LI>
 					<LI>Choose from your list of available TwineSocial hubs.</LI>
+					<LI>Set any advanced options and press Save.</LI>
 					</OL>
 
 
 					<HR>
 
-					<H4>Using TwineSocial shortcodes</H4>
-
-					<P>Shortcodes are the quickest way to embed TwineSocial on your WordPress site. Create a new Post and click on the Text option on the top-right hand side of the post. Paste in the generated code and press SAVE.
-
-					<P>Many additional arguments are supported by the shortcode:</p>
-
-					<DL>
-					<DT>app="MYSITE"</DT><DD>Your TwineSocial application name</DD>
-					<DT>width="250px"</DT><DD>Width of your TwineSocial embedded widget</DD>
-					<DT>height="500px"</DT><DD>initial height of the widget. (If you choose Infinite Scroll below, then your widget will automatically grow when the bottom of the widget is scrolled into view.)</DD>
-					<DT>nav="1"</DT><DD>Enable/Disable site navigation.</DD>
-					<DT>collection="252"</DT><DD>the ID of a specific collection to display, like "My Videos" or "Superbowl." Setup your collections <a href="http://<?php echo TWINE_CUSTOMER_URL?>/">here</a>.</DD>
-					<DT>scroll="no"</DT><DD> Disable infinite scrolling.</DD>
-					</DL>
-
-
-					<P>Shortcode examples:</P>
-
-					<div class="alert alert-info">[twinesocial app='WCD'] </div>
-
-					<div class="alert alert-info">[twinesocial app='WCD' scroll="yes"] </div>
-
-					<HR>
-
 					<H3>Frequently Asked Questions</H3>
 
-					<H4>What is Twine?</H4>
+					<H4>What is TwineSocial?</H4>
 
 					<P><A href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a> provides the tools you need to grow and engage your social audience. Display any social media content on your digital properties, and drive massive social engagement.</p>
 
-					<H3>What can I use TwineSocial for?</h3>
+					<H4>What can I use TwineSocial for?</h4>
 					<P>Connect any combination of social media feeds, including hashtags, from any social media network and TwineSocial will aggregate your content onto one stunning destination on your website, TV, video wall, or display.</p>
 					<P>TwineSocial is richly interactive and engaging. Get beautiful presentation of your photos, videos, and other social media elements on your digital properties.</p>
 
-					<H3>How do I start using TwineSocial?</H3>
+					<H4>How do I start using TwineSocial?</H4>
+					<P>First sign up for a free account at <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a>. This Wordpress plugin then allows you to embed your TwineSocial feed into your WordPress site. Go to the ShortCode tab to easily learn how.</p>
 
-					<P>First sign up for a free account at <a href="http://<?php echo TWINE_PUBLIC_URL?>">TwineSocial</a>. This Wordpress plugin then allows you to embed your TwineSocial feed into your WordPress site. Go to the Installation tab to easily learn how.</p>
-
-					<H3>Help, I'm having a problem!</H3>
-
-					<P>We apologize for any problems you may have. Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>.</p>
-
-
-		</div>
+					<H4>I'm stuck. Now what?</H4>
+					<P>Feel free to Tweet us at @twinesocial, visit our <a href="http://www.facebook.com/TwineSocial">Facebook Page</a>, visit our <a href="http://support.twinesocial.com">support forum</a>. You can also read our extensive <a href="http://www.twinesocial.com/docs">online documentation</a>.</p>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -2,8 +2,8 @@
 Contributors: Nathan Elliott, Aaron Fessler
 Tags: TwineSocial, facebook widget, twitter widget, instagram widget, chromecast, youtube widget, hashtags, hashtag campaigns, linkedin widget, social media feed, Social Media Hub, plugin, widget, social networks, twitter, facebook, social media, Pinterest Widget, publish Facebook, social plugins, social media aggregator, rss widget, embed social media feeds, twitter posts, twitter sidebar, Facebook posts, Facebook sidebar, social sidebar, google widget, socialize, autoblogger, autoblog, feed aggregator
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 2.8
+Tested up to: 4.1.1
+Stable tag: 2.9
 License: GPLv2
 
 Display your social media content (Facebook, Twitter, Google+, Instagram, YouTube, Vine, Pinterest + more) in one stunning wall.
@@ -108,9 +108,19 @@ We apologize for any problems you may have. Feel free to visit our [support foru
 
 == Changelog ==
 
-= 2.8 =
+= 2.9 =
+A huge release!
+Built-in support for stunning new social media hub themes (Classic, Display Wall, Photo Grids, Metro Walls, and more)
+Color schemes. Social hubs look amazing in black, white, and gray Wordpress sites now.
+Added ability to limit number of posts displayed in the sidebar widget and with the shortcode.
+Added ability to display or hide the "Load More" button.
+Added support for "auto" height in the sidebar widget.
 Added Feeds tab. You can now monitor the number of posts each data feed has acquired.
-Updated account management links.
+Tested with WP 4.1.1.
+
+
+= 2.8 =
+Updated account management links to point to new locations.
 
 = 2.7 =
 Minor bug fixes.

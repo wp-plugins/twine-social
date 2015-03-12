@@ -29,8 +29,8 @@
 						<TH>&nbsp;</TH>
 					</thead>
 					<tbody>
-					<?php foreach ($twinesocial_appdata_json->apps as $app) { ?>
-					<?php foreach ($app->connections as $connection) { ?>
+					<?php foreach ($twinesocial_appdata_json->campaigns as $campaign) { ?>
+					<?php foreach ($campaign->connections as $connection) { ?>
 						<TR>
 							<TD><i class="fa fa-<?php echo $connection->cssClass?>"></i> <?php echo $connection->network?></TD>
 							<TD>
@@ -41,13 +41,13 @@
 									<i class="fa fa-check"></i>
 								<?php } ?>
 							</TD>
-							<TD><a target="_blank" class="btn btn-sm btn-default" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $app->baseUrl?>/connection">Edit Connection</a></TD>
+							<TD><a target="_blank" class="btn btn-sm btn-default" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $campaign->baseUrl?>/connection">Edit Connection</a></TD>
 						</TR>
 					<?php } ?>
 					<?php } ?>
 					</tbody>
 					</table>
-					<a id="btn-rules" class="btn btn-primary btn-sm" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $twinesocial_appdata_json->apps[0]->baseUrl?>/connection/index">Add New Social Connection</a>
+					<a id="btn-rules" class="btn btn-primary btn-sm" href="http:<?php echo TWINE_CUSTOMER_URL?>/app/<?php echo $twinesocial_appdata_json->campaigns[0]->baseUrl?>/connection/index">Add New Social Connection</a>
 				</div>
 			</div>
 		</div>

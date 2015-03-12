@@ -19,8 +19,8 @@
 
 			<p>Once you've setup your Rules and Collections to match your needs, embed your Collections seamlessly on your Wordpress blog.</p>
 
-			<a id="btn-rules" class="btn btn-default btn-sm" href="http://<?php echo TWINE_CUSTOMER_URL?>/app<?php echo json_decode($twinesocial_appdata)->apps[0]->baseUrl?>/rules/index">Configure Rules</a>
-			<a id="btn-collections" class="btn btn-default btn-sm" href="http://<?php echo TWINE_CUSTOMER_URL?>/app<?php echo json_decode($twinesocial_appdata)->apps[0]->baseUrl?>/collection/index">Manage Collections</a>
+			<a id="btn-rules" class="btn btn-default btn-sm" href="http://<?php echo TWINE_CUSTOMER_URL?>/app<?php echo json_decode($twinesocial_appdata)->campaigns[0]->baseUrl?>/rules/index">Configure Rules</a>
+			<a id="btn-collections" class="btn btn-default btn-sm" href="http://<?php echo TWINE_CUSTOMER_URL?>/app<?php echo json_decode($twinesocial_appdata)->campaigns[0]->baseUrl?>/collection/index">Manage Collections</a>
 		</div>
 	</div>
 </div>
