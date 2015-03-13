@@ -126,7 +126,7 @@
 							<SELECT class="form-control" name="twinesocial_scrolloptions" id="twinesocial_scrolloptions">
 								<OPTION value="fixed">Do nothing</option>
 								<OPTION selected value="autoload">Auto-load more posts</option>
-								<OPTION value="showbutton">Show a "Load More Posts" button"</option>
+								<OPTION value="showbutton">Show a "Load More Posts" button</option>
 							</SELECT>
 						</div>
 					</div>
